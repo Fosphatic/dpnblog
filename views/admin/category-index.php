@@ -12,17 +12,17 @@
             <div class="uk-grid uk-grid-large uk-margin">
                 <div class="uk-width-medium-1-3">
                     <label class="uk-margin-small">{{'Category Name' | trans}}</label>
-                    <input type="text" class="uk-width-1-1" v-model="catArray.title" required>
+                    <input v-model="cat.title" required>
                 </div>
                 <div class="uk-width-medium-1-3">
-                    <label class="uk-margin-small" v-model="">{{'Slug' | trans}}</label>
-                    <input type="text" class="uk-width-1-1" v-model="catArray.slug">
+                    <label class="uk-margin-small">{{'Slug' | trans}}</label>
+                    <input v-model="cat.slug">
                 </div>
                 <div class="uk-width-medium-1-3">
                     <label class="uk-margin-small">{{'Child Category' | trans}}</label>
-                    <span class="uk-display-block uk-badge uk-badge-danger uk-margin-small" v-if="category.length == 0">{{'Not Found Category' | trans}}</span>
-                    <select class="uk-width-1-1 uk-display-block" v-if="category.length != 0" v-model="catArray.sub_category">
-                        <option v-for="cat in category" v-bind:value="cat.id">{{cat.title}}</option>
+                    <span class="uk-display-block uk-badge uk-badge-danger uk-margin-small" v-if="categorys.length == 0">{{'Not Found Category' | trans}}</span>
+                    <select v-if="categorys.length != 0" v-model="cat.sub_category">
+                        <option v-for="category in categorys" v-bind:value="category.id">{{category.title}}</option>
                     </select>
                 </div>
             </div>
@@ -30,8 +30,14 @@
     </div>
 
     <ul>
-        <li v-for="cat in category">
-            {{cat.title}}
+        <li v-for="le in pushEnd">
+            {{le.title}}
+        </li>
+    </ul>
+
+    <ul>
+        <li v-for="category in categorys">
+            {{category.title}}
         </li>
     </ul>
 

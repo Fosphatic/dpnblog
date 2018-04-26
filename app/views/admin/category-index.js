@@ -4,20 +4,22 @@ module.exports = {
     el  : '#category',
 
     data:   {
-        category:  window.$data.category,
-        catArray: {title: '', slug: '', sub_category: ''}
+        categorys:  window.$data.category,
+        cat: {title:'' , slug: '' , sub_category: '' },
     },
 
     methods: {
       addCategory: function(event){
         event.preventDefault();
-        this.$http.post('admin/pastheme/update' , {array:this.catArray}, function(){
+
+        this.$http.post('admin/api/dpnblog/post/categoryadd' , {category:this.cat}, function(){
           UIkit.notify('Saved', '');
         }).catch(function(data){
           UIkit.notify(data, 'danger');
         })
+        this.cat = {title:'' , slug: '' , sub_category: '' };
       }
     }
 };
 
-Vue.ready(module.exports);
+var vm = Vue.ready(module.exports);

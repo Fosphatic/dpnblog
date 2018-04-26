@@ -167,4 +167,14 @@ class PostApiController
 
         return ['message' => 'success'];
     }
+
+    /**
+    * @Access(admin=true)
+    * @Route(methods="POST")
+    * @Request({"category": "array"}, csrf=true)
+    */
+    public function categoryAddAction($category)
+    {
+      return ['message' => $category];
+    }
 }
