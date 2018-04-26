@@ -42,7 +42,7 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
 	var __vue_styles__ = {}
@@ -65,7 +65,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-2ad20854/link-blog.vue"
+	  var id = "_v-45d489db/link-blog.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -73,9 +73,9 @@
 	  }
 	})()}
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
@@ -94,19 +94,19 @@
 	    },
 
 	    created: function created() {
-	        this.$http.get('api/blog/post', { filter: { limit: 1000 } }).then(function (res) {
+	        this.$http.get('api/dpnblog/post', { filter: { limit: 1000 } }).then(function (res) {
 	            this.$set('posts', res.data.posts);
 	        });
 	    },
 
 	    ready: function ready() {
-	        this.link = '@blog';
+	        this.link = '@dpnblog';
 	    },
 
 	    filters: {
 
 	        link: function link(post) {
-	            return '@blog/id?id=' + post.id;
+	            return '@dpnblog/id?id=' + post.id;
 	        }
 
 	    }
@@ -115,11 +115,11 @@
 
 	window.Links.components['link-blog'] = module.exports;
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
-	module.exports = "\n\n<div class=\"uk-form-row\">\n    <label for=\"form-link-blog\" class=\"uk-form-label\">{{ 'View' | trans }}</label>\n    <div class=\"uk-form-controls\">\n        <select id=\"form-link-blog\" class=\"uk-width-1-1\" v-model=\"link\">\n            <option value=\"@blog\">{{ 'Posts View' | trans }}</option>\n            <optgroup :label=\"'Posts' | trans\">\n                <option v-for=\"p in posts\" :value=\"p | link\">{{ p.title }}</option>\n            </optgroup>\n        </select>\n    </div>\n</div>\n\n";
+	module.exports = "\n\n<div class=\"uk-form-row\">\n    <label for=\"form-link-blog\" class=\"uk-form-label\">{{ 'View' | trans }}</label>\n    <div class=\"uk-form-controls\">\n        <select id=\"form-link-blog\" class=\"uk-width-1-1\" v-model=\"link\">\n            <option value=\"@dpnblog\">{{ 'Posts View' | trans }}</option>\n            <optgroup :label=\"'Posts' | trans\">\n                <option v-for=\"p in posts\" :value=\"p | link\">{{ p.title }}</option>\n            </optgroup>\n        </select>\n    </div>\n</div>\n\n";
 
-/***/ }
+/***/ })
 /******/ ]);

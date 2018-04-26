@@ -42,7 +42,7 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	Vue.ready(function () {
 	    jQuery('time').each(function() {
@@ -51,5 +51,5 @@
 	});
 
 
-/***/ }
+/***/ })
 /******/ ]);

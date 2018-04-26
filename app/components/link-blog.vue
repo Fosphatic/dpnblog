@@ -4,7 +4,7 @@
         <label for="form-link-blog" class="uk-form-label">{{ 'View' | trans }}</label>
         <div class="uk-form-controls">
             <select id="form-link-blog" class="uk-width-1-1" v-model="link">
-                <option value="@blog">{{ 'Posts View' | trans }}</option>
+                <option value="@dpnblog">{{ 'Posts View' | trans }}</option>
                 <optgroup :label="'Posts' | trans">
                     <option v-for="p in posts" :value="p | link">{{ p.title }}</option>
                 </optgroup>
@@ -32,19 +32,19 @@
 
         created: function () {
             // TODO: Implement pagination or search
-            this.$http.get('api/blog/post', {filter: {limit: 1000}}).then(function (res) {
+            this.$http.get('api/dpnblog/post', {filter: {limit: 1000}}).then(function (res) {
                 this.$set('posts', res.data.posts);
             });
         },
 
         ready: function() {
-            this.link = '@blog';
+            this.link = '@dpnblog';
         },
 
         filters: {
 
             link: function (post) {
-                return '@blog/id?id='+post.id;
+                return '@dpnblog/id?id='+post.id;
             }
 
         }

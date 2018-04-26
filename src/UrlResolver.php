@@ -115,7 +115,7 @@ class UrlResolver implements ParamsResolverInterface
 
         if (null === $permalink) {
 
-            $blog = App::module('devblog');
+            $blog = App::module('dpnblog');
             $permalink = $blog->config('permalink.type');
 
             if ($permalink == 'custom') {

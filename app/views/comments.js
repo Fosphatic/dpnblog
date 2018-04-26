@@ -21,7 +21,7 @@ module.exports = {
 
         load: function () {
 
-            return this.$http.get('api/blog/comment{/id}', {post: this.config.post}).then(function (res) {
+            return this.$http.get('api/dpnblog/comment{/id}', {post: this.config.post}).then(function (res) {
                 var data = res.data;
 
                 this.$set('comments', data.comments);
@@ -160,7 +160,7 @@ module.exports = {
 
                     this.$set('error', false);
 
-                    this.$resource('api/blog/comment{/id}').save({id: 0}, {comment: comment}).then(function (res) {
+                    this.$resource('api/dpnblog/comment{/id}').save({id: 0}, {comment: comment}).then(function (res) {
 
                         var data = res.data;
 

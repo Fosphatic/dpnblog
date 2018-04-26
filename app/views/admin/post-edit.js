@@ -26,7 +26,7 @@ window.Post = {
 
         this.$set('sections', _.sortBy(sections, 'priority'));
 
-        this.resource = this.$resource('api/blog/post{/id}');
+        this.resource = this.$resource('api/dpnblog/post{/id}');
     },
 
     ready: function () {
@@ -45,7 +45,7 @@ window.Post = {
                 var data = res.data;
 
                 if (!this.post.id) {
-                    window.history.replaceState({}, '', this.$url.route('admin/blog/post/edit', {id: data.post.id}))
+                    window.history.replaceState({}, '', this.$url.route('admin/dpnblog/post/edit', {id: data.post.id}))
                 }
 
                 this.$set('post', data.post);

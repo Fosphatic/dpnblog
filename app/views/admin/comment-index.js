@@ -22,7 +22,7 @@ module.exports = {
 
     ready: function () {
 
-        this.Comments = this.$resource('api/blog/comment{/id}');
+        this.Comments = this.$resource('api/dpnblog/comment{/id}');
         this.$watch('config.page', this.load, {immediate: true});
 
         UIkit.init(this.$el);

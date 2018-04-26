@@ -16,7 +16,7 @@ return [
 
     'nodes' => [
 
-        'blog' => [
+        'dpnblog' => [
             'name' => '@dpnblog',
             'label' => 'Blog',
             'controller' => 'Dpn\\Blog\\Controller\\SiteController',
@@ -28,11 +28,11 @@ return [
 
     'routes' => [
 
-        '/blog' => [
+        '/dpnblog' => [
             'name' => '@dpnblog',
             'controller' => 'Dpn\\Blog\\Controller\\BlogController'
         ],
-        '/api/blog' => [
+        '/api/dpnblog' => [
             'name' => '@dpnblog/api',
             'controller' => [
                 'Dpn\\Blog\\Controller\\PostApiController',
@@ -77,7 +77,7 @@ return [
 
     'menu' => [
 
-        'blog' => [
+        'dpnblog' => [
             'label' => 'Blog',
             'icon' => 'dpnblog:icon.svg',
             'url' => '@dpnblog/post',
@@ -87,21 +87,21 @@ return [
         ],
         'dpnblog: posts' => [
             'label' => 'Posts',
-            'parent' => 'blog',
+            'parent' => 'dpnblog',
             'url' => '@dpnblog/post',
             'active' => '@dpnblog/post*',
             'access' => 'dpnblog: manage own posts || dpnblog: manage all posts'
         ],
         'dpnblog: comments' => [
             'label' => 'Comments',
-            'parent' => 'blog',
+            'parent' => 'dpnblog',
             'url' => '@dpnblog/comment',
             'active' => '@dpnblog/comment*',
             'access' => 'dpnblog: manage comments'
         ],
         'dpnblog: settings' => [
             'label' => 'Settings',
-            'parent' => 'blog',
+            'parent' => 'dpnblog',
             'url' => '@dpnblog/settings',
             'active' => '@dpnblog/settings*',
             'access' => 'system: access settings'

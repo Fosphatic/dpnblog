@@ -18,7 +18,7 @@ module.exports = {
     },
 
     ready: function () {
-        this.resource = this.$resource('api/blog/post{/id}');
+        this.resource = this.$resource('api/dpnblog/post{/id}');
         this.$watch('config.page', this.load, {immediate: true});    
     },
 
