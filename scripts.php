@@ -29,6 +29,31 @@ return [
             });
         }
 
+        if($util->tableExists('@blog_category') === false){
+            $util->createTable('@blog_category' , function($table) {
+                $table->addColumn('id', 'integer', ['unsigned' => true, 'length' => 10, 'autoincrement' => true]);
+                $table->addColumn('title', 'string', ['length' => 255]);
+                $table->addColumn('slug', 'string', ['length' => 255]);
+                $table->addColumn('date', 'datetime', ['notnull' => false]);
+                $table->addColumn('sub_category', 'simple_array', ['notnull' => false]);
+                $table->setPrimaryKey(['id']);
+                $table->addUniqueIndex(['slug'], '@BLOG_POST_SLUG');
+                $table->addIndex(['date'], '@BLOG_POST_DATE');
+            });
+        }
+
+        if($util->tableExists('@blog_tag') === false){
+            $util->createTable('@blog_tag' , function($table) {
+                $table->addColumn('id', 'integer', ['unsigned' => true, 'length' => 10, 'autoincrement' => true]);
+                $table->addColumn('title', 'string', ['length' => 255]);
+                $table->addColumn('slug', 'string', ['length' => 255]);
+                $table->addColumn('date', 'datetime', ['notnull' => false]);
+                $table->setPrimaryKey(['id']);
+                $table->addUniqueIndex(['slug'], '@BLOG_POST_SLUG');
+                $table->addIndex(['date'], '@BLOG_POST_DATE');
+            });
+        }
+
         if ($util->tableExists('@blog_comment') === false) {
             $util->createTable('@blog_comment', function ($table) {
                 $table->addColumn('id', 'integer', ['unsigned' => true, 'length' => 10, 'autoincrement' => true]);
@@ -66,6 +91,11 @@ return [
         }
     },
 
+    'enable'  => function($app){
+
+
+    },
+
     'updates' => [
 
         '0.11.2' => function ($app) {
@@ -89,6 +119,22 @@ return [
                         }
                     }
                 }
+            }
+
+            $util->migrate();
+        },
+
+        '2.0.1' => function ($app) {
+
+            $db = $app['db'];
+            $util = $db->getUtility();
+
+            foreach (['@blog_post'] as $name) {
+                $table = $util->getTable($name);
+
+                $table->addColumn('category', 'simple_array', ['notnull' => false]);
+                $table->addColumn('tag', 'simple_array', ['notnull' => false]);
+
             }
 
             $util->migrate();

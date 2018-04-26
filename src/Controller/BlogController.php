@@ -6,6 +6,7 @@ use Pagekit\Application as App;
 use Dpn\Blog\Model\Comment;
 use Dpn\Blog\Model\Post;
 use Pagekit\User\Model\Role;
+use Dpn\Blog\Model\Category;
 
 /**
  * @Access(admin=true)
@@ -144,5 +145,33 @@ class BlogController
                 'config' => App::module('dpnblog')->config()
             ]
         ];
+    }
+
+    /**
+     * @Access("system: access settings")
+     * @Route("/category")
+     */
+    public function categoryAction()
+    {
+        $category = Category::findAll();
+
+        return [
+            '$view' => [
+                'title' => __('Category Template'),
+                'name'  => 'dpnblog/admin/category-index.php'
+            ],
+            '$data' => [
+                'category' => (object) $category
+            ]
+        ];
+    }
+
+    /**
+     * @Access("system: access settings")
+     * @Route("/tag")
+     */
+    public function tagAction()
+    {
+        return 'Yes';
     }
 }

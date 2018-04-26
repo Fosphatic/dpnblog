@@ -92,6 +92,20 @@ return [
             'active' => '@dpnblog/post*',
             'access' => 'dpnblog: manage own posts || dpnblog: manage all posts'
         ],
+        'dpnblog: category' => [
+            'label' => 'Category',
+            'parent' => 'dpnblog',
+            'url' => '@dpnblog/category',
+            'active' => '@dpnblog/category*',
+            'access' => 'system: access settings'
+        ],
+        'dpnblog: tag' => [
+            'label' => 'Tags',
+            'parent' => 'dpnblog',
+            'url' => '@dpnblog/tag',
+            'active' => '@dpnblog/tag*',
+            'access' => 'system: access settings'
+        ],
         'dpnblog: comments' => [
             'label' => 'Comments',
             'parent' => 'dpnblog',
