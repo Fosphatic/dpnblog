@@ -13,7 +13,7 @@ class RouteListener implements EventSubscriberInterface
      */
     public function onAppRequest()
     {
-        App::router()->setOption('blog.permalink', UrlResolver::getPermalink());
+        App::router()->setOption('dpnblog.permalink', UrlResolver::getPermalink());
     }
 
     /**
@@ -22,7 +22,7 @@ class RouteListener implements EventSubscriberInterface
     public function onConfigureRoute($event, $route)
     {
         if ($route->getName() == '@dpnblog/id' && UrlResolver::getPermalink()) {
-            App::routes()->alias(dirname($route->getPath()).'/'.ltrim(UrlResolver::getPermalink(), '/'), '@dpnblog/id', ['_resolver' => 'Pagekit\Blog\UrlResolver']);
+            App::routes()->alias(dirname($route->getPath()).'/'.ltrim(UrlResolver::getPermalink(), '/'), '@dpnblog/id', ['_resolver' => 'Dpn\Blog\UrlResolver']);
         }
     }
 

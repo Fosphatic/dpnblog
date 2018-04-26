@@ -96,7 +96,7 @@ class Post implements \JsonSerializable
 
     public function isCommentable()
     {
-        $blog      = App::module('blog');
+        $blog      = App::module('dpnblog');
         $autoclose = $blog->config('comments.autoclose') ? $blog->config('comments.autoclose_days') : 0;
 
         return $this->comment_status && (!$autoclose or $this->date >= new \DateTime("-{$autoclose} day"));
@@ -123,7 +123,7 @@ class Post implements \JsonSerializable
     public function jsonSerialize()
     {
         $data = [
-            'url' => App::url('@blog/id', ['id' => $this->id ?: 0], 'base')
+            'url' => App::url('@dpnblog/id', ['id' => $this->id ?: 0], 'base')
         ];
 
         if ($this->comments) {

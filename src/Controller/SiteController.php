@@ -133,7 +133,7 @@ class SiteController
         return [
             '$view' => [
                 'title' => __($post->title),
-                'name' => 'blog/post.php',
+                'name' => 'dpnblog/post.php',
                 'og:type' => 'article',
                 'article:published_time' => $post->date->format(\DateTime::ATOM),
                 'article:modified_time' => $post->modified->format(\DateTime::ATOM),
@@ -151,8 +151,8 @@ class SiteController
                     'user' => [
                         'name' => $user->name,
                         'isAuthenticated' => $user->isAuthenticated(),
-                        'canComment' => $user->hasAccess('blog: post comments'),
-                        'skipApproval' => $user->hasAccess('blog: skip comment approval')
+                        'canComment' => $user->hasAccess('dpnblog: post comments'),
+                        'skipApproval' => $user->hasAccess('dpnblog: skip comment approval')
                     ]
                 ]
             ],

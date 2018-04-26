@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 class UrlResolver implements ParamsResolverInterface
 {
-    const CACHE_KEY = 'blog.routing';
+    const CACHE_KEY = 'dpnblog.routing';
 
     /**
      * @var bool
