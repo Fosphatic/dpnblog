@@ -4,6 +4,7 @@ namespace Dpn\Blog\Controller;
 
 use Pagekit\Application as App;
 use Dpn\Blog\Model\Post;
+use Dpn\Blog\Model\Category;
 
 /**
  * @Access("dpnblog: manage own posts || dpnblog: manage all posts")
@@ -175,6 +176,17 @@ class PostApiController
     */
     public function categoryAddAction($category)
     {
-      return ['message' => $category];
+
+      $query = Category::create([
+        'title' => $category['title'],
+        'slug'  => App::filter($category['slug'] ?: $category['title'], 'slugify'),
+        'date'  => new \DateTime(),
+        'sub_category'  => explode(',' , $category['sub_category'] ?: 0)
+      ]);
+      $query->save();
+
+      return [
+        'message' => true
+      ];
     }
 }

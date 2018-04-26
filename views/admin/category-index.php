@@ -12,16 +12,17 @@
             <div class="uk-grid uk-grid-large uk-margin">
                 <div class="uk-width-medium-1-3">
                     <label class="uk-margin-small">{{'Category Name' | trans}}</label>
-                    <input v-model="cat.title" required>
+                    <input class="uk-width-1-1" v-model="cat.title" required>
                 </div>
                 <div class="uk-width-medium-1-3">
                     <label class="uk-margin-small">{{'Slug' | trans}}</label>
-                    <input v-model="cat.slug">
+                    <input class="uk-width-1-1" v-model="cat.slug">
                 </div>
                 <div class="uk-width-medium-1-3">
                     <label class="uk-margin-small">{{'Child Category' | trans}}</label>
                     <span class="uk-display-block uk-badge uk-badge-danger uk-margin-small" v-if="categorys.length == 0">{{'Not Found Category' | trans}}</span>
-                    <select v-if="categorys.length != 0" v-model="cat.sub_category">
+                    <select class="uk-width-1-1" v-if="categorys.length != 0" v-model="cat.sub_category">
+                        <option value="">{{ 'Main Category' | trans}}</option>
                         <option v-for="category in categorys" v-bind:value="category.id">{{category.title}}</option>
                     </select>
                 </div>

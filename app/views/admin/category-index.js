@@ -13,9 +13,9 @@ module.exports = {
         event.preventDefault();
 
         this.$http.post('admin/api/dpnblog/post/categoryadd' , {category:this.cat}, function(){
-          UIkit.notify('Saved', '');
+          location.reload();
         }).catch(function(data){
-          UIkit.notify(data, 'danger');
+          UIkit.notify('There is a problem', 'danger');
         })
         this.cat = {title:'' , slug: '' , sub_category: '' };
       }

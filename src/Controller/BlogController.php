@@ -153,7 +153,7 @@ class BlogController
      */
     public function categoryAction()
     {
-        $category = Category::findAll();
+        $category = Category::query()->where('sub_category = ?' , [0])->get();
 
         return [
             '$view' => [

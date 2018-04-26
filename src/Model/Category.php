@@ -31,9 +31,6 @@ class Category
     /** @Column(type="string") */
     public $slug;
 
-    /** @Column(type="smallint") */
-    public $status;
-
     /** @Column(type="datetime") */
     public $date;
 
