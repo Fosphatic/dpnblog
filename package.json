@@ -1,5 +1,5 @@
 {
-  "name": "devblog",
+  "name": "dpnblog",
   "scripts": {
     "archive": "webpack -p && composer archive --format=zip"
   },
