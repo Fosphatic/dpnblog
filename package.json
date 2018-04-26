@@ -1,5 +1,5 @@
 {
-  "name": "pagekit-blog",
+  "name": "devblog",
   "scripts": {
     "archive": "webpack -p && composer archive --format=zip"
   },

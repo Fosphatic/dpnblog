@@ -1,8 +1,8 @@
 <?php
 
-use Pagekit\Blog\Content\ReadmorePlugin;
-use Pagekit\Blog\Event\PostListener;
-use Pagekit\Blog\Event\RouteListener;
+use Dpn\Blog\Content\ReadmorePlugin;
+use Dpn\Blog\Event\PostListener;
+use Dpn\Blog\Event\RouteListener;
 
 return [
 

@@ -1,11 +1,17 @@
 {
-    "name": "pagekit/blog",
+    "name": "devpenguennet/blog",
     "type": "pagekit-extension",
-    "version": "1.0.5",
-    "title": "Blog",
+    "version": "2.0.0",
+    "title": "DevBlog",
     "description": "A blog extensions with a built-in comment system.",
     "license": "MIT",
     "authors": [
+        {
+            "name": "Devpenguennet",
+            "email": "me@devpenguen.net",
+            "homepage": "http://devpenguen.net"
+        },
+
         {
             "name": "Pagekit",
             "email": "info@pagekit.com",
