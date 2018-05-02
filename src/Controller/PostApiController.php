@@ -189,4 +189,19 @@ class PostApiController
         'message' => true
       ];
     }
+
+    /**
+    * @Access(admin=true)
+    * @Route(methods="POST")
+    * @Request({"category": "array"}, csrf=true)
+    */
+    public function categoryDeleteAction($category)
+    {
+      $query = Category::find($category['id']);
+      $query->delete();
+
+      return [
+        'message' => true
+      ];
+    }
 }

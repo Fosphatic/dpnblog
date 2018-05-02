@@ -64,7 +64,21 @@
 	          UIkit.notify('There is a problem', 'danger');
 	        })
 	        this.cat = {title:'' , slug: '' , sub_category: '' };
+	      },
+	      
+	      deleteCategory: function(cat){    
+	        
+	        this.$http.post('admin/api/dpnblog/post/categorydelete' , {category:cat}, function(){
+	          location.reload();
+	        }).catch(function(data){
+	          UIkit.notify('There is a problem', 'danger');
+	        })
+	        
 	      }
+	    },  
+	    created: function () {
+	    
+	      console.log('Yüklendi')
 	    }
 	};
 

@@ -36,9 +36,12 @@
         </li>
     </ul>
 
-    <ul>
+    <ul class="uk-list uk-list-line">
         <li v-for="category in categorys">
-            {{category.title}}
+          <span class="uk-align-right">
+              <button @click="deleteCategory(category)" return="false" class="uk-button uk-button-danger"><i class="uk-icon-remove"></i></button>
+          </span>
+          {{category.title}} - <strong>Slug: </strong>{{category.slug}}
         </li>
     </ul>
 
