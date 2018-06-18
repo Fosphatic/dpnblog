@@ -153,13 +153,16 @@ class BlogController
      */
     public function categoryAction()
     {
+
+        $query = Category::query()->where('sub_category IS NULL')->orderBy('id' , 'DESC')->get();
+
         return [
             '$view' => [
                 'title' => __('Category Template'),
                 'name'  => 'dpnblog/admin/category-index.php'
             ],
             '$data' => [
-                'category' => ''
+                'category' => $query
             ]
         ];
     }
@@ -179,8 +182,12 @@ class BlogController
           }
 
           $category = Category::create([
-            'status'  => 1,          
+            'status'  => 1,
           ]);
+        }
+
+        if (!$others = array_values(Category::query()->where(['status = ?' , 'id != ?' , 'sub_category IS NULL'] , [1 , $id])->orderBy('sub_category' , 'ASC')->get())) {
+          $others = [];
         }
 
         if (!is_array($category->sub_category)) {
@@ -196,7 +203,7 @@ class BlogController
           ],
           '$data' => [
             'category'  => $category,
-            'other'     => array_values(Category::query()->where(['status = ?' , 'id != ?' , 'sub_category IS NULL'] , [1 , $id])->orderBy('sub_category' , 'ASC')->get()),
+            'other'     => $others,
             'icons'     => $icons->config['icons']
           ]
         ];

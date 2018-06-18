@@ -38,12 +38,11 @@
           </tr>
       </thead>
       <tbody>
-        <tr>
-          <tr>
-            <td><input type="checkbox" name="id" value="1"></td>
-            <td>
-            </td>
-          </tr>
+        <tr v-for="category in data.category">
+          <td><input type="checkbox" name="id" value="1"></td>
+          <td>
+            {{category.title}}
+          </td>
         </tr>
       </tbody>
   </table>

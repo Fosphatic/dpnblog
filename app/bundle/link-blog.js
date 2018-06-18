@@ -46,10 +46,10 @@
 
 	var __vue_script__, __vue_template__
 	var __vue_styles__ = {}
-	__vue_script__ = __webpack_require__(4)
+	__vue_script__ = __webpack_require__(5)
 	if (Object.keys(__vue_script__).some(function (key) { return key !== "default" && key !== "__esModule" })) {
 	  console.warn("[vue-loader] app/components/link-blog.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(5)
+	__vue_template__ = __webpack_require__(6)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	var __vue_options__ = typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports
@@ -77,7 +77,8 @@
 /* 1 */,
 /* 2 */,
 /* 3 */,
-/* 4 */
+/* 4 */,
+/* 5 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -123,7 +124,7 @@
 	window.Links.components['link-blog'] = module.exports;
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports) {
 
 	module.exports = "\n\n<div class=\"uk-form-row\">\n    <label for=\"form-link-blog\" class=\"uk-form-label\">{{ 'View' | trans }}</label>\n    <div class=\"uk-form-controls\">\n        <select id=\"form-link-blog\" class=\"uk-width-1-1\" v-model=\"link\">\n            <option value=\"@dpnblog\">{{ 'Posts View' | trans }}</option>\n            <optgroup :label=\"'Posts' | trans\">\n                <option v-for=\"p in posts\" :value=\"p | link\">{{ p.title }}</option>\n            </optgroup>\n        </select>\n    </div>\n</div>\n\n";

@@ -40,26 +40,27 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {module.export = {
 	  el: '#category',
 
 	  data: {
-	    message: 'Yunus'
+	    data: window.$data
 	  }
 	}
 
 	Vue.ready(module.export);
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
 /***/ }),
-
-/***/ 11:
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */
 /***/ (function(module, exports) {
 
 	module.exports = function(module) {
@@ -75,5 +76,4 @@
 
 
 /***/ })
-
-/******/ });
+/******/ ]);
