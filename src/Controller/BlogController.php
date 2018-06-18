@@ -153,17 +153,61 @@ class BlogController
      */
     public function categoryAction()
     {
-        $category = Category::query()->where('sub_category = ?' , [0])->get();
-
         return [
             '$view' => [
                 'title' => __('Category Template'),
                 'name'  => 'dpnblog/admin/category-index.php'
             ],
             '$data' => [
-                'category' => (object) $category
+                'category' => ''
             ]
         ];
+    }
+
+    /**
+     * @Route("/category/edit", name="category/edit")
+     * @Access("dpnblog: manage own posts || dpnblog: manage all posts")
+     * @Request({"id": "int"})
+     */
+    public function categoryEditAction($id = 0){
+      try {
+
+        if (!$category = Category::where(compact('id'))->first()) {
+
+          if ($id) {
+              App::abort(404, __('Invalid category id.'));
+          }
+
+          $category = Category::create([
+            'status'  => 1,          
+          ]);
+        }
+
+        if (!is_array($category->sub_category)) {
+          $category->sub_category = [];
+        }
+
+        $icons = App::module('dpnblog');
+
+        return [
+          '$view' => [
+            'title' => $id == 0 ? __('New Category'):__('Edit Category'),
+            'name'  => 'dpnblog:views/admin/category-edit.php'
+          ],
+          '$data' => [
+            'category'  => $category,
+            'other'     => array_values(Category::query()->where(['status = ?' , 'id != ?' , 'sub_category IS NULL'] , [1 , $id])->orderBy('sub_category' , 'ASC')->get()),
+            'icons'     => $icons->config['icons']
+          ]
+        ];
+
+      } catch (\Exception $e) {
+
+          App::message()->error($e->getMessage());
+
+          return App::redirect('@dpnblog/category');
+      }
+
     }
 
     /**

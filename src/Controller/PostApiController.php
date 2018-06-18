@@ -169,39 +169,4 @@ class PostApiController
         return ['message' => 'success'];
     }
 
-    /**
-    * @Access(admin=true)
-    * @Route(methods="POST")
-    * @Request({"category": "array"}, csrf=true)
-    */
-    public function categoryAddAction($category)
-    {
-
-      $query = Category::create([
-        'title' => $category['title'],
-        'slug'  => App::filter($category['slug'] ?: $category['title'], 'slugify'),
-        'date'  => new \DateTime(),
-        'sub_category'  => explode(',' , $category['sub_category'] ?: 0)
-      ]);
-      $query->save();
-
-      return [
-        'message' => true
-      ];
-    }
-
-    /**
-    * @Access(admin=true)
-    * @Route(methods="POST")
-    * @Request({"category": "array"}, csrf=true)
-    */
-    public function categoryDeleteAction($category)
-    {
-      $query = Category::find($category['id']);
-      $query->delete();
-
-      return [
-        'message' => true
-      ];
-    }
 }

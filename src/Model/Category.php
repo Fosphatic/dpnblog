@@ -21,7 +21,6 @@ class Category
 {
     use ModelTrait;
 
-
     /** @Column(type="integer") @Id */
     public $id;
 
@@ -34,7 +33,13 @@ class Category
     /** @Column(type="datetime") */
     public $date;
 
+    /** @Column(type="json_array") */
+    public $data;
+
     /** @Column(type="simple_array") */
     public $sub_category;
+
+    /** @Column(type="integer") */
+    public $status;
 
 }

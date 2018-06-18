@@ -36,6 +36,7 @@ return [
             'name' => '@dpnblog/api',
             'controller' => [
                 'Dpn\\Blog\\Controller\\PostApiController',
+                'Dpn\\Blog\\Controller\\CategoryApiController',
                 'Dpn\\Blog\\Controller\\CommentApiController'
             ]
         ]
@@ -161,7 +162,9 @@ return [
         'feed' => [
             'type' => 'rss2',
             'limit' => 20
-        ]
+        ],
+
+        'icons' => ['pagekit' , 'linux']
 
     ],
 

@@ -40,50 +40,40 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(module) {module.export = {
+	  el: '#category',
+
+	  data: {
+	    message: 'Yunus'
+	  }
+	}
+
+	Vue.ready(module.export);
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)(module)))
+
+/***/ }),
+
+/***/ 11:
 /***/ (function(module, exports) {
 
-	module.exports = {
-	    name: 'category',
-
-	    el  : '#category',
-
-	    data:   {
-	        categorys:  window.$data.category,
-	        cat: {title:'' , slug: '' , sub_category: '' },
-	    },
-
-	    methods: {
-	      addCategory: function(event){
-	        event.preventDefault();
-
-	        this.$http.post('admin/api/dpnblog/post/categoryadd' , {category:this.cat}, function(){
-	          location.reload();
-	        }).catch(function(data){
-	          UIkit.notify('There is a problem', 'danger');
-	        })
-	        this.cat = {title:'' , slug: '' , sub_category: '' };
-	      },
-	      
-	      deleteCategory: function(cat){    
-	        
-	        this.$http.post('admin/api/dpnblog/post/categorydelete' , {category:cat}, function(){
-	          location.reload();
-	        }).catch(function(data){
-	          UIkit.notify('There is a problem', 'danger');
-	        })
-	        
-	      }
-	    },  
-	    created: function () {
-	    
-	      console.log('Yüklendi')
-	    }
-	};
-
-	var vm = Vue.ready(module.exports);
+	module.exports = function(module) {
+		if(!module.webpackPolyfill) {
+			module.deprecate = function() {};
+			module.paths = [];
+			// module.parent = undefined by default
+			module.children = [];
+			module.webpackPolyfill = 1;
+		}
+		return module;
+	}
 
 
 /***/ })
-/******/ ]);
+
+/******/ });

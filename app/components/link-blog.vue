@@ -16,7 +16,7 @@
 
 <script>
 
-    module.exports = {
+    export default {
 
         link: {
             label: 'Blog'

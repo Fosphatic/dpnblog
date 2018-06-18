@@ -35,10 +35,9 @@ return [
                 $table->addColumn('title', 'string', ['length' => 255]);
                 $table->addColumn('slug', 'string', ['length' => 255]);
                 $table->addColumn('date', 'datetime', ['notnull' => false]);
+                $table->addColumn('data', 'json_array', ['notnull' => false]);
                 $table->addColumn('sub_category', 'simple_array', ['notnull' => false]);
                 $table->setPrimaryKey(['id']);
-                $table->addUniqueIndex(['slug'], '@BLOG_POST_SLUG');
-                $table->addIndex(['date'], '@BLOG_POST_DATE');
             });
         }
 
@@ -48,9 +47,8 @@ return [
                 $table->addColumn('title', 'string', ['length' => 255]);
                 $table->addColumn('slug', 'string', ['length' => 255]);
                 $table->addColumn('date', 'datetime', ['notnull' => false]);
+                $table->addColumn('data', 'json_array', ['notnull' => false]);
                 $table->setPrimaryKey(['id']);
-                $table->addUniqueIndex(['slug'], '@BLOG_POST_SLUG');
-                $table->addIndex(['date'], '@BLOG_POST_DATE');
             });
         }
 
