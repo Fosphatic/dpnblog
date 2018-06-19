@@ -154,7 +154,7 @@ class BlogController
     public function categoryAction()
     {
 
-        $query = Category::query()->where('sub_category IS NULL')->orderBy('id' , 'DESC')->get();
+        $query = Category::query()->where('sub_category IS NULL')->orderBy('id' , 'ASC')->get();
 
         return [
             '$view' => [

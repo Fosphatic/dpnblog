@@ -59,4 +59,13 @@ class CategoryApiController
       'message' => true
     ];
   }
+
+  /**
+  * @Access(admin=true)
+  * @Route(methods="POST")
+  * @Request({"id": "integer"}, csrf=true)
+  */
+  public function countAction($id){
+    return ['status'  => 'yes'];
+  }
 }
