@@ -149,21 +149,28 @@ class BlogController
 
     /**
      * @Access("system: access settings")
-     * @Route("/category")
+     * @Route("/category" , name="/category")
+     * @Request({"sub": "int"})
      */
-    public function categoryAction()
+    public function categoryAction($sub = 0)
     {
+        if ($sub === 0) {
+          $query = Category::query()->where('sub_category IS NULL')->orderBy('id' , 'ASC')->get();
+        }else{
+          $query = Category::query()->where('sub_category LIKE :search' , [':search' => "%{$sub}%"])->orderBy('id' , 'ASC')->get();
+        }
 
-        $query = Category::query()->where('sub_category IS NULL')->orderBy('id' , 'ASC')->get();
 
         return [
             '$view' => [
-                'title' => __('Category Template'),
+                'title' => $sub >= 1 ? __('Sub Categorys'):__('Categorys'),
                 'name'  => 'dpnblog/admin/category-index.php'
             ],
             '$data' => [
-                'category' => $query
-            ]
+                'category' => $query,
+                'sub'       => $sub
+            ],
+            'categorys' => $sub >= 1 ? __('Sub Categorys'):__('Categorys'),
         ];
     }
 

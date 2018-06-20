@@ -48,19 +48,47 @@
 	  el: '#category',
 
 	  data: {
-	    data: window.$data
+	    data: window.$data,
+	    selected:[]
 	  },
 
 	  filters: {
-	    count: function(data){
-	      var count = '';
-	      this.$http.post('/admin/api/dpnblog/category/count' , {id:data} , function(success){
-	        count = success.status;
-	      }).catch(function(error){
-	        console.log('error')
-	      })
-	      return count;
+	    count: function(values){
+	      Object.size = function(obj) {
+	          var size = 0, key;
+	          for (key in obj) {
+	              if (obj.hasOwnProperty(key)) size++;
+	          }
+	          return size;
+	      };
+	      return Object.size(values);
 	    }
+	  },
+
+	  methods: {
+
+	    change: function(index , status){
+
+	      this.$http.post('admin/api/dpnblog/category/change' , {id:index , value:status})
+	      .then(function(success){
+	        location.reload();
+	      })
+	      .catch(function(error){
+	        location.reload();
+	      })
+
+	    },
+
+	    remove: function(){
+	      this.$http.post('admin/api/dpnblog/category/remove' , {id:this.selected})
+	      .then(function(success){
+	        location.reload();
+	      })
+	      .catch(function(error){
+	        location.reload();
+	      })
+	    }
+
 	  }
 	}
 

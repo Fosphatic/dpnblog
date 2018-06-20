@@ -63,6 +63,31 @@ class CategoryApiController
   /**
   * @Access(admin=true)
   * @Route(methods="POST")
+  * @Request({"id":"array" , "value":"string"} , csrf=true)
+  */
+  public function changeAction($id , $value){
+    $query = Category::find($id['id']);
+    $query->status = $value;
+    $query->save();
+    return ['message' => true];
+  }
+
+  /**
+  * @Access(admin=true)
+  * @Route(methods="POST")
+  * @Request({"id":"array"} , csrf=true)
+  */
+  public function removeAction($id){
+    foreach ($id as $value) {
+      $query = Category::find($value);
+      $query->delete();
+    }
+    return ['message' => true];
+  }
+
+  /**
+  * @Access(admin=true)
+  * @Route(methods="POST")
   * @Request({"id": "integer"}, csrf=true)
   */
   public function countAction($id){
