@@ -12,7 +12,8 @@ module.exports = [
             "link-blog": "./app/components/link-blog.vue",
             "post-meta": "./app/components/post-meta.vue",
             "category-index": "./app/views/admin/category-index.js",
-            "category-edit": "./app/views/admin/category-edit.js"
+            "category-edit": "./app/views/admin/category-edit.js",
+            "tags-index": "./app/views/admin/tags-index.js",
         },
         output: {
             filename: "./app/bundle/[name].js"

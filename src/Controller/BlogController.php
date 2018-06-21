@@ -224,12 +224,4 @@ class BlogController
 
     }
 
-    /**
-     * @Access("system: access settings")
-     * @Route("/tag")
-     */
-    public function tagAction()
-    {
-        return 'Yes';
-    }
 }

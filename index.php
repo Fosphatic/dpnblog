@@ -30,14 +30,18 @@ return [
 
         '/dpnblog' => [
             'name' => '@dpnblog',
-            'controller' => 'Dpn\\Blog\\Controller\\BlogController'
+            'controller' => [
+              'Dpn\\Blog\\Controller\\BlogController',
+              'Dpn\\Blog\\Controller\\TagsController'
+            ]
         ],
         '/api/dpnblog' => [
             'name' => '@dpnblog/api',
             'controller' => [
                 'Dpn\\Blog\\Controller\\PostApiController',
                 'Dpn\\Blog\\Controller\\CategoryApiController',
-                'Dpn\\Blog\\Controller\\CommentApiController'
+                'Dpn\\Blog\\Controller\\CommentApiController',
+                'Dpn\\Blog\\Controller\\TagsApiController'
             ]
         ]
 
