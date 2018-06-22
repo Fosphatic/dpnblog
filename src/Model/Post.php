@@ -59,6 +59,12 @@ class Post implements \JsonSerializable
     /** @Column(type="integer") */
     public $comment_count = 0;
 
+    /** @Column(type="simple_array") */
+    public $category_id;
+
+    /** @Column(type="simple_array") */
+    public $tags;
+
     /**
      * @BelongsTo(targetEntity="Pagekit\User\Model\User", keyFrom="user_id")
      */

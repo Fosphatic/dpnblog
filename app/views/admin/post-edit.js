@@ -61,7 +61,7 @@ window.Post = {
 
     components: {
 
-        settings: require('../../components/post-settings.vue')
+        settings: require('../../components/post-settings.vue'),
 
     }
 

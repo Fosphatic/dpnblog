@@ -57,7 +57,8 @@ class BlogController
                     'user_id' => App::user()->id,
                     'status' => Post::STATUS_DRAFT,
                     'date' => new \DateTime(),
-                    'comment_status' => (bool) $module->config('posts.comments_enabled')
+                    'comment_status' => (bool) $module->config('posts.comments_enabled'),
+                    'tags' => []
                 ]);
 
                 $post->set('title', $module->config('posts.show_title'));
@@ -68,6 +69,15 @@ class BlogController
             if(!$user->hasAccess('dpnblog: manage all posts') && $post->user_id !== $user->id) {
                 App::abort(403, __('Insufficient User Rights.'));
             }
+
+            $category = App::db()->createQueryBuilder()
+              ->from('@blog_category')
+              ->where(['status' => 2])
+              ->get();
+
+            $tags = App::db()->createQueryBuilder()
+              ->from('@blog_tag')
+              ->get();
 
             $roles = App::db()->createQueryBuilder()
                 ->from('@system_role')
@@ -92,7 +102,9 @@ class BlogController
                     'statuses' => Post::getStatuses(),
                     'roles'    => array_values(Role::findAll()),
                     'canEditAll' => $user->hasAccess('dpnblog: manage all posts'),
-                    'authors'  => $authors
+                    'authors'  => $authors,
+                    'category' => $category,
+                    'tags'     => $tags
                 ],
                 'post' => $post
             ];

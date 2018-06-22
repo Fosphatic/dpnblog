@@ -54,11 +54,29 @@
                 <div class="uk-form-row" v-if="data.canEditAll">
                     <label for="form-author" class="uk-form-label">{{ 'Category' | trans }}</label>
                     <div class="uk-form-controls">
-                        <select id="form-author" class="uk-width-1-1" v-model="post.user_id">
-                            <option v-for="author in data.authors" :value="author.id">{{author.username}}</option>
+                        <select id="form-author" class="uk-width-1-1" v-model="post.category_id" required>
+                            <option v-for="category in data.category" :value="category.id">{{category.title}}</option>
                         </select>
                     </div>
                 </div>
+                <div class="uk-form-row">
+                    <label for="form-author" class="uk-form-label">{{ 'Tags' | trans }}</label>
+                    <div class="uk-panel uk-panel-box">
+
+                      <ul class="uk-list uk-form-row">
+                        <li class="uk-form-controls" v-for="tag in data.tags">
+                          <label class="uk-form-label">
+                            <input type="checkbox" :value="tag.id" v-model="post.tags">
+                            {{tag.title}}
+                          </label>
+                        </li>
+                      </ul>
+
+                    </div>
+                </div>
+
+                <input-tag placeholder="Add Tags" :tags.sync="post.tags" :limit="limit"></input-tag>
+
                 <div class="uk-form-row">
                     <span class="uk-form-label">{{ 'Publish on' | trans }}</span>
                     <div class="uk-form-controls">
@@ -99,7 +117,12 @@
 
         section: {
             label: 'Post'
+        },
+
+        components: {
+          inputTag: require('../model/input-tag.vue')
         }
+
 
     };
 

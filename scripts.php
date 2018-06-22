@@ -90,6 +90,7 @@ return [
 
     'enable'  => function($app){
 
+      
 
     },
 
@@ -121,7 +122,7 @@ return [
             $util->migrate();
         },
 
-        '2.0.1' => function ($app) {
+        '3.0.0' => function ($app) {
 
             $db = $app['db'];
             $util = $db->getUtility();
@@ -129,8 +130,8 @@ return [
             foreach (['@blog_post'] as $name) {
                 $table = $util->getTable($name);
 
-                $table->addColumn('category', 'simple_array', ['notnull' => false]);
-                $table->addColumn('tag', 'simple_array', ['notnull' => false]);
+                $table->addColumn('category_id', 'simple_array', ['notnull' => false]);
+                $table->addColumn('tags', 'simple_array');
 
             }
 

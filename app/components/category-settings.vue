@@ -45,6 +45,7 @@
             </div>
         </div>
 
+
         <div class="uk-form-row uk-margin">
             <label for="form-slug" class="uk-form-label">Icon</label>
             <div class="uk-form-controls">
@@ -69,6 +70,5 @@
       section: {
           label: 'Category'
       }
-
   };
 </script>
