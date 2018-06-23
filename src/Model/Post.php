@@ -59,7 +59,7 @@ class Post implements \JsonSerializable
     /** @Column(type="integer") */
     public $comment_count = 0;
 
-    /** @Column(type="simple_array") */
+    /** @Column(type="integer") */
     public $category_id;
 
     /** @Column(type="simple_array") */
@@ -69,6 +69,11 @@ class Post implements \JsonSerializable
      * @BelongsTo(targetEntity="Pagekit\User\Model\User", keyFrom="user_id")
      */
     public $user;
+
+    /**
+    * @BelongsTo(targetEntity="Category" , keyFrom="category_id" , keyTo="id")
+    */
+    public $category;
 
     /**
      * @HasMany(targetEntity="Comment", keyFrom="id", keyTo="post_id")

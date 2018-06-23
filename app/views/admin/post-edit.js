@@ -2,6 +2,8 @@ window.Post = {
 
     el: '#post',
 
+    name: 'postEdit',
+
     data: function () {
         return {
             data: window.$data,

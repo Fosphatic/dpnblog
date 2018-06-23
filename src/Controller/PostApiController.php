@@ -81,6 +81,10 @@ class PostApiController
             $post = Post::create();
         }
 
+        if (empty($data['tags'])) {
+          $data['tags'] = [];
+        }
+
         if (!$data['slug'] = App::filter($data['slug'] ?: $data['title'], 'slugify')) {
             App::abort(400, __('Invalid slug.'));
         }

@@ -75,10 +75,6 @@ class BlogController
               ->where(['status' => 2])
               ->get();
 
-            $tags = App::db()->createQueryBuilder()
-              ->from('@blog_tag')
-              ->get();
-
             $roles = App::db()->createQueryBuilder()
                 ->from('@system_role')
                 ->where(['id' => Role::ROLE_ADMINISTRATOR])
@@ -103,8 +99,7 @@ class BlogController
                     'roles'    => array_values(Role::findAll()),
                     'canEditAll' => $user->hasAccess('dpnblog: manage all posts'),
                     'authors'  => $authors,
-                    'category' => $category,
-                    'tags'     => $tags
+                    'category' => $category                  
                 ],
                 'post' => $post
             ];

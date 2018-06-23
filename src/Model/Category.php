@@ -42,4 +42,9 @@ class Category
     /** @Column(type="integer") */
     public $status;
 
+    /**
+     * @HasMany(targetEntity="Post", keyFrom="id", keyTo="category_id")
+     */
+    public $post;
+
 }

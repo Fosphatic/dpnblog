@@ -31,8 +31,7 @@ return [
         '/dpnblog' => [
             'name' => '@dpnblog',
             'controller' => [
-              'Dpn\\Blog\\Controller\\BlogController',
-              'Dpn\\Blog\\Controller\\TagsController'
+              'Dpn\\Blog\\Controller\\BlogController'
             ]
         ],
         '/api/dpnblog' => [
@@ -40,8 +39,7 @@ return [
             'controller' => [
                 'Dpn\\Blog\\Controller\\PostApiController',
                 'Dpn\\Blog\\Controller\\CategoryApiController',
-                'Dpn\\Blog\\Controller\\CommentApiController',
-                'Dpn\\Blog\\Controller\\TagsApiController'
+                'Dpn\\Blog\\Controller\\CommentApiController'
             ]
         ]
 
@@ -103,14 +101,7 @@ return [
             'url' => '@dpnblog/category',
             'active' => '@dpnblog/category*',
             'access' => 'system: access settings'
-        ],
-        'dpnblog: tag' => [
-            'label' => 'Tags',
-            'parent' => 'dpnblog',
-            'url' => '@dpnblog/tag',
-            'active' => '@dpnblog/tag*',
-            'access' => 'system: access settings'
-        ],
+        ],        
         'dpnblog: comments' => [
             'label' => 'Comments',
             'parent' => 'dpnblog',

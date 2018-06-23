@@ -4,6 +4,7 @@ namespace Dpn\Blog\Controller;
 
 use Pagekit\Application as App;
 use Dpn\Blog\Model\Post;
+use Dpn\Blog\Model\Category;
 use Pagekit\Module\Module;
 
 class SiteController
@@ -29,7 +30,7 @@ class SiteController
     {
         $query = Post::where(['status = ?', 'date < ?'], [Post::STATUS_PUBLISHED, new \DateTime])->where(function ($query) {
             return $query->where('roles IS NULL')->whereInSet('roles', App::user()->roles, false, 'OR');
-        })->related('user');
+        })->related(['user' , 'category']);
 
         if (!$limit = $this->blog->config('posts.posts_per_page')) {
             $limit = 10;
@@ -111,7 +112,7 @@ class SiteController
      */
     public function postAction($id = 0)
     {
-        if (!$post = Post::where(['id = ?', 'status = ?', 'date < ?'], [$id, Post::STATUS_PUBLISHED, new \DateTime])->related('user')->first()) {
+        if (!$post = Post::where(['id = ?', 'status = ?', 'date < ?'], [$id, Post::STATUS_PUBLISHED, new \DateTime])->related(['user' , 'category'])->first()) {
             App::abort(404, __('Post not found!'));
         }
 
@@ -159,5 +160,16 @@ class SiteController
             'blog' => $this->blog,
             'post' => $post
         ];
+    }
+
+    /**
+    * @Route("/category/{category}" , name="category")
+    */
+    public function categoryAction($category = 0){
+
+      $query = Category::query()->where('id = ?' , [$category])->related('post')->get();
+      print_r($query);
+      return 'yes';
+
     }
 }

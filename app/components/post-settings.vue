@@ -59,23 +59,14 @@
                         </select>
                     </div>
                 </div>
+
                 <div class="uk-form-row">
                     <label for="form-author" class="uk-form-label">{{ 'Tags' | trans }}</label>
-                    <div class="uk-panel uk-panel-box">
-
-                      <ul class="uk-list uk-form-row">
-                        <li class="uk-form-controls" v-for="tag in data.tags">
-                          <label class="uk-form-label">
-                            <input type="checkbox" :value="tag.id" v-model="post.tags">
-                            {{tag.title}}
-                          </label>
-                        </li>
-                      </ul>
-
-                    </div>
+                    <input-tag
+                      :placeholder="Add Tags"
+                      :tags.sync="post.tags"
+                    ></input-tag>
                 </div>
-
-                <input-tag placeholder="Add Tags" :tags.sync="post.tags" :limit="limit"></input-tag>
 
                 <div class="uk-form-row">
                     <span class="uk-form-label">{{ 'Publish on' | trans }}</span>
@@ -111,7 +102,7 @@
 
 <script>
 
-    module.exports = {
+    export default {
 
         props: ['post', 'data', 'form'],
 
@@ -120,7 +111,7 @@
         },
 
         components: {
-          inputTag: require('../model/input-tag.vue')
+          inputTag: require('../model/input-tags.vue')
         }
 
 

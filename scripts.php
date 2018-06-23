@@ -41,16 +41,6 @@ return [
             });
         }
 
-        if($util->tableExists('@blog_tag') === false){
-            $util->createTable('@blog_tag' , function($table) {
-                $table->addColumn('id', 'integer', ['unsigned' => true, 'length' => 10, 'autoincrement' => true]);
-                $table->addColumn('title', 'string', ['length' => 255]);
-                $table->addColumn('slug', 'string', ['length' => 255]);
-                $table->addColumn('data', 'json_array', ['notnull' => false]);
-                $table->setPrimaryKey(['id']);
-            });
-        }
-
         if ($util->tableExists('@blog_comment') === false) {
             $util->createTable('@blog_comment', function ($table) {
                 $table->addColumn('id', 'integer', ['unsigned' => true, 'length' => 10, 'autoincrement' => true]);
@@ -90,7 +80,7 @@ return [
 
     'enable'  => function($app){
 
-      
+
 
     },
 
@@ -130,8 +120,8 @@ return [
             foreach (['@blog_post'] as $name) {
                 $table = $util->getTable($name);
 
-                $table->addColumn('category_id', 'simple_array', ['notnull' => false]);
-                $table->addColumn('tags', 'simple_array');
+                $table->addColumn('category_id', 'integer', ['notnull' => false]);
+                $table->addColumn('tags', 'simple_array' , ['notnull' => false]);
 
             }
 
