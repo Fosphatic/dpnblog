@@ -21,6 +21,8 @@ return [
                 $table->addColumn('comment_count', 'integer', ['default' => 0]);
                 $table->addColumn('data', 'json_array', ['notnull' => false]);
                 $table->addColumn('roles', 'simple_array', ['notnull' => false]);
+                $table->addColumn('category_id', 'integer', ['notnull' => false]);
+                $table->addColumn('tags', 'simple_array' , ['notnull' => false]);
                 $table->setPrimaryKey(['id']);
                 $table->addUniqueIndex(['slug'], '@BLOG_POST_SLUG');
                 $table->addIndex(['title'], '@BLOG_POST_TITLE');
@@ -34,6 +36,7 @@ return [
                 $table->addColumn('id', 'integer', ['unsigned' => true, 'length' => 10, 'autoincrement' => true]);
                 $table->addColumn('title', 'string', ['length' => 255]);
                 $table->addColumn('slug', 'string', ['length' => 255]);
+                $table->addColumn('status', 'string', ['length' => 255]);
                 $table->addColumn('date', 'datetime', ['notnull' => false]);
                 $table->addColumn('data', 'json_array', ['notnull' => false]);
                 $table->addColumn('sub_category', 'simple_array', ['notnull' => false]);
@@ -114,18 +117,7 @@ return [
 
         '3.0.0' => function ($app) {
 
-            $db = $app['db'];
-            $util = $db->getUtility();
-
-            foreach (['@blog_post'] as $name) {
-                $table = $util->getTable($name);
-
-                $table->addColumn('category_id', 'integer', ['notnull' => false]);
-                $table->addColumn('tags', 'simple_array' , ['notnull' => false]);
-
-            }
-
-            $util->migrate();
+        
         }
 
     ]

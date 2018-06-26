@@ -99,7 +99,7 @@ class BlogController
                     'roles'    => array_values(Role::findAll()),
                     'canEditAll' => $user->hasAccess('dpnblog: manage all posts'),
                     'authors'  => $authors,
-                    'category' => $category                  
+                    'category' => $category
                 ],
                 'post' => $post
             ];
@@ -159,7 +159,7 @@ class BlogController
      * @Route("/category" , name="/category")
      * @Request({"sub": "int"})
      */
-    public function categoryAction($sub = 0)
+    public function categorssyAction($sub = 0)
     {
         if ($sub === 0) {
           $query = Category::query()->where('sub_category IS NULL')->orderBy('id' , 'ASC')->get();

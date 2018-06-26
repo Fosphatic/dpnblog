@@ -22,6 +22,13 @@ return [
             'controller' => 'Dpn\\Blog\\Controller\\SiteController',
             'protected' => true,
             'frontpage' => true
+        ],
+        'dpncategory' => [
+            'name' => '@dpncategory',
+            'label' => 'Blog',
+            'controller' => 'Dpn\\Blog\\Controller\\SiteController',
+            'protected' => true,
+            'frontpage' => true
         ]
 
     ],
@@ -101,7 +108,7 @@ return [
             'url' => '@dpnblog/category',
             'active' => '@dpnblog/category*',
             'access' => 'system: access settings'
-        ],        
+        ],
         'dpnblog: comments' => [
             'label' => 'Comments',
             'parent' => 'dpnblog',
