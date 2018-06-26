@@ -11,6 +11,6 @@ If you want to have a blog that is always up to date. An Advanced blog for you. 
 - Social Sharing Media ( we think plannig to update in 1.0.7 Beta )
 - Sitemap XML ( we think plannig to update in 1.0.8 Beta )
 
-##### Latest Version `1.0.5 Beta`
+##### Latest Version `1.0.5 Beta` [Download Package](https://github.com/devpenguennet/devblog/releases/tag/1.5)
 
 If you want to see the **[demo](http://pastheme.com/module/advanced-blog)**
