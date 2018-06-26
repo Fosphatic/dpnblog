@@ -28,7 +28,7 @@ return [
             'name' => '@blogcategory',
             'label' => 'Category',
             'controller' => 'Dpn\\Blog\\Controller\\CategoryController',
-            'protected' => true
+            'protected' => false
         ]
 
     ],

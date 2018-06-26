@@ -1,7 +1,7 @@
 {
   "name": "dpnblog",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.5",
+  "description": "If you want to have a blog that is always up to date. An Advanced blog for you.",
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,8 +11,8 @@
     "url": "git+https://github.com/devpenguennet/devblog.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Pastheme",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/devpenguennet/devblog/issues"
   },

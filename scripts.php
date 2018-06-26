@@ -115,11 +115,6 @@ return [
             $util->migrate();
         },
 
-        '3.0.0' => function ($app) {
-
-
-        }
-
     ]
 
 ];
