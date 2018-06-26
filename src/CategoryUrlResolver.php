@@ -7,9 +7,9 @@ use Dpn\Blog\Model\Category;
 use Pagekit\Routing\ParamsResolverInterface;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
-class UrlResolverCategory implements ParamsResolverInterface
+class CategoryUrlResolver implements ParamsResolverInterface
 {
-    const CACHE_KEY = 'dpnblog.routing';
+    const CACHE_KEY = 'blogcategory.routing';
 
     /**
      * @var bool

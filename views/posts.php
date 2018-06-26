@@ -10,8 +10,8 @@
     <h1 class="uk-article-title"><a href="<?= $view->url('@dpnblog/id', ['id' => $post->id]) ?>"><?= $post->title ?></a></h1>
 
     <p class="uk-article-meta">
-        <a href="<?= $view->url('@dpnblog/categorys', ['categorys' => $post->category->id]) ?>"><?= $post->category->title ?></a>
-        <?= __('Written by %name% on %date%', ['%name%' => $this->escape($post->user->name), '%date%' => '<time datetime="'.$post->date->format(\DateTime::ATOM).'" v-cloak>{{ "'.$post->date->format(\DateTime::ATOM).'" | date "longDate" }}</time>' ]) ?>
+      <a href="<?= $view->url('@blogcategory/id', ['id' => $post->category->id]) ?>"><?= $post->category->title ?></a>
+      <?= __('Written by %name% on %date%', ['%name%' => $this->escape($post->user->name), '%date%' => '<time datetime="'.$post->date->format(\DateTime::ATOM).'" v-cloak>{{ "'.$post->date->format(\DateTime::ATOM).'" | date "longDate" }}</time>' ]) ?>
     </p>
 
     <div class="uk-margin"><?= $post->excerpt ?: $post->content ?></div>

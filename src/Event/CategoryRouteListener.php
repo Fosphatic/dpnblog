@@ -3,26 +3,26 @@
 namespace Dpn\Blog\Event;
 
 use Pagekit\Application as App;
-use Dpn\Blog\UrlResolver;
+use Dpn\Blog\CategoryUrlResolver;
 use Pagekit\Event\EventSubscriberInterface;
 
-class RouteListener implements EventSubscriberInterface
+class CategoryRouteListener implements EventSubscriberInterface
 {
     /**
      * Adds cache breaker to router.
      */
     public function onAppRequest()
     {
-        App::router()->setOption('dpnblog.permalink', UrlResolver::getPermalink());
+        App::router()->setOption('dpnblog.permalink', CategoryUrlResolver::getPermalink());
     }
 
     /**
      * Registers permalink route alias.
      */
-    public function onConfigureRoute($event, $route)
+    public function onCategoryRoute($event, $route)
     {
-        if ($route->getName() == '@dpnblog/id' && UrlResolver::getPermalink()) {
-            App::routes()->alias(dirname($route->getPath()).'/'.ltrim(UrlResolver::getPermalink(), '/'), '@dpnblog/id', ['_resolver' => 'Dpn\Blog\UrlResolver']);
+        if ($route->getName() == '@blogcategory/id' && CategoryUrlResolver::getPermalink()) {
+            App::routes()->alias(dirname($route->getPath()).'/'.ltrim(CategoryUrlResolver::getPermalink(), '/'), '@blogcategory/id', ['_resolver' => 'Dpn\Blog\CategoryUrlResolver']);
         }
 
     }
@@ -32,7 +32,7 @@ class RouteListener implements EventSubscriberInterface
      */
     public function clearCache()
     {
-        App::cache()->delete(UrlResolver::CACHE_KEY);
+        App::cache()->delete(CategoryUrlResolver::CACHE_KEY);
     }
 
     /**
@@ -42,7 +42,7 @@ class RouteListener implements EventSubscriberInterface
     {
         return [
             'request'                 => ['onAppRequest', 130],
-            'route.configure'         => 'onConfigureRoute',
+            'route.configure'         => 'onCategoryRoute',
             'model.post.saved'        => 'clearCache',
             'model.post.deleted'      => 'clearCache'
         ];

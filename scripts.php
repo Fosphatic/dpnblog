@@ -22,7 +22,7 @@ return [
                 $table->addColumn('data', 'json_array', ['notnull' => false]);
                 $table->addColumn('roles', 'simple_array', ['notnull' => false]);
                 $table->addColumn('category_id', 'integer', ['notnull' => false]);
-                $table->addColumn('tags', 'simple_array' , ['notnull' => false]);
+                $table->addColumn('tags', 'simple_array');
                 $table->setPrimaryKey(['id']);
                 $table->addUniqueIndex(['slug'], '@BLOG_POST_SLUG');
                 $table->addIndex(['title'], '@BLOG_POST_TITLE');
@@ -117,7 +117,7 @@ return [
 
         '3.0.0' => function ($app) {
 
-        
+
         }
 
     ]

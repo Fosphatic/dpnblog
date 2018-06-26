@@ -159,7 +159,7 @@ class BlogController
      * @Route("/category" , name="/category")
      * @Request({"sub": "int"})
      */
-    public function categorssyAction($sub = 0)
+    public function categoryAction($sub = 0)
     {
         if ($sub === 0) {
           $query = Category::query()->where('sub_category IS NULL')->orderBy('id' , 'ASC')->get();
@@ -200,7 +200,7 @@ class BlogController
           ]);
         }
 
-        if (!$others = array_values(Category::query()->where(['status = ?' , 'id != ?' , 'sub_category IS NULL'] , [1 , $id])->orderBy('sub_category' , 'ASC')->get())) {
+        if (!$others = array_values(Category::query()->where(['status = ?' , 'id != ?' , 'sub_category IS NULL'] , [2 , $id])->orderBy('sub_category' , 'ASC')->get())) {
           $others = [];
         }
 

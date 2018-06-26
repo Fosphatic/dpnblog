@@ -161,25 +161,4 @@ class SiteController
             'post' => $post
         ];
     }
-
-    /**
-    * @Route("/categorys/{cat}" , name="cat" , requirements={"page" = "\d+"})
-    */
-    public function categorysAction($cat = 0){
-
-      try {
-        if (!$query = Category::where('id = ?' , [$cat])->related('post')->get()) {
-          //App::abort(404 , __('Not Found Category'));
-        }
-        echo $cat;
-        print_r($query);
-        return 'yes';
-
-      } catch (\Exception $e) {
-        App::message()->error($e->getMessage());
-        return App::redirect(404);
-      }
-
-
-    }
 }

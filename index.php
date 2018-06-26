@@ -3,6 +3,7 @@
 use Dpn\Blog\Content\ReadmorePlugin;
 use Dpn\Blog\Event\PostListener;
 use Dpn\Blog\Event\RouteListener;
+use Dpn\Blog\Event\CategoryRouteListener;
 
 return [
 
@@ -23,12 +24,11 @@ return [
             'protected' => true,
             'frontpage' => true
         ],
-        'dpncategory' => [
-            'name' => '@dpncategory',
-            'label' => 'Blog',
-            'controller' => 'Dpn\\Blog\\Controller\\SiteController',
-            'protected' => true,
-            'frontpage' => true
+        'category' => [
+            'name' => '@blogcategory',
+            'label' => 'Category',
+            'controller' => 'Dpn\\Blog\\Controller\\CategoryController',
+            'protected' => true
         ]
 
     ],
@@ -175,6 +175,7 @@ return [
         'boot' => function ($event, $app) {
             $app->subscribe(
                 new RouteListener,
+                new CategoryRouteListener,
                 new PostListener(),
                 new ReadmorePlugin
             );
