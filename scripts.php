@@ -16,13 +16,13 @@ return [
                 $table->addColumn('date', 'datetime', ['notnull' => false]);
                 $table->addColumn('modified', 'datetime');
                 $table->addColumn('content', 'text');
-                $table->addColumn('excerpt', 'text');
+                $table->addColumn('excerpt', 'text' , ['notnull' => false]);
                 $table->addColumn('comment_status', 'boolean', ['default' => false]);
                 $table->addColumn('comment_count', 'integer', ['default' => 0]);
                 $table->addColumn('data', 'json_array', ['notnull' => false]);
                 $table->addColumn('roles', 'simple_array', ['notnull' => false]);
                 $table->addColumn('category_id', 'integer', ['notnull' => false]);
-                $table->addColumn('tags', 'simple_array');
+                $table->addColumn('tags', 'simple_array' , ['notnull' => false]);
                 $table->setPrimaryKey(['id']);
                 $table->addUniqueIndex(['slug'], '@BLOG_POST_SLUG');
                 $table->addIndex(['title'], '@BLOG_POST_TITLE');
@@ -78,6 +78,10 @@ return [
 
         if ($util->tableExists('@blog_comment')) {
             $util->dropTable('@blog_comment');
+        }
+
+        if ($util->tableExists('@blog_category')) {
+            $util->dropTable('@blog_category');
         }
     },
 

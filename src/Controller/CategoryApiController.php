@@ -27,6 +27,10 @@ class CategoryApiController
       $query = Category::find($data['id']);
     }
 
+    if (empty($data['category']['data'])) {
+      $data['category']['data'] = json_encode($data['category']['data']);
+    }
+
     if (empty($data['category']['date'])) {
       $data['category']['date'] = new \DateTime;
     }else{

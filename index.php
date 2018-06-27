@@ -23,12 +23,6 @@ return [
             'controller' => 'Dpn\\Blog\\Controller\\SiteController',
             'protected' => true,
             'frontpage' => true
-        ],
-        'category' => [
-            'name' => '@blogcategory',
-            'label' => 'Category',
-            'controller' => 'Dpn\\Blog\\Controller\\CategoryController',
-            'protected' => false
         ]
 
     ],
@@ -40,6 +34,10 @@ return [
             'controller' => [
               'Dpn\\Blog\\Controller\\BlogController'
             ]
+        ],
+        '/category' => [
+            'name' => '@blogcategory',
+            'controller' => 'Dpn\\Blog\\Controller\\CategoryController'
         ],
         '/api/dpnblog' => [
             'name' => '@dpnblog/api',

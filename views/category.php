@@ -9,10 +9,17 @@
 
     <h1 class="uk-article-title"><a href="<?= $view->url('@dpnblog/id', ['id' => $post->id]) ?>"><?= $post->title ?></a></h1>
 
-    <p class="uk-article-meta">
-      <a href="<?= $view->url('@blogcategory/id', ['id' => $post->category->id]) ?>"><?= $post->category->title ?></a>
-      <?= __('Written by %name% on %date%', ['%name%' => $this->escape($post->user->name), '%date%' => '<time datetime="'.$post->date->format(\DateTime::ATOM).'" v-cloak>{{ "'.$post->date->format(\DateTime::ATOM).'" | date "longDate" }}</time>' ]) ?>
-    </p>
+    <article class="uk-comment">
+        <header class="uk-comment-header">
+            <img class="uk-comment-avatar" src="<?= $post->getGravatar() ?>" alt="<?= $post->user->name ?>">
+            <h4 class="uk-comment-title"><?= $post->user->name ?></h4>
+            <div class="uk-comment-meta">
+              <?= __('Posted in') ?>
+              <a class="uk-text-bold" href="<?= $view->url('@blogcategory/id', ['id' => $post->category->id]) ?>"><?= $post->category->title ?></a>
+              <?= __('%date%', ['%date%' => '<time datetime="'.$post->date->format(\DateTime::ATOM).'" v-cloak>{{ "'.$post->date->format(\DateTime::ATOM).'" | date "longDate" }}</time>' ]) ?>
+            </div>
+        </header>
+    </article>
 
     <div class="uk-margin"><?= $post->excerpt ?: $post->content ?></div>
 

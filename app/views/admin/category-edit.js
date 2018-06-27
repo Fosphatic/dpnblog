@@ -41,9 +41,11 @@ window.Category = {
 
             this.$http.post('admin/api/dpnblog/category/save' , {data:data} , function(success){
                 UIkit.notify('Saved.', '');
-                console.log(success.data.id);
                 window.history.replaceState({}, '', this.$url.route('admin/dpnblog/category/edit', {id: success.data.id}))
-            }).catch(function(error) {              
+
+                this.$set('category', success.data);
+
+            }).catch(function(error) {
                 UIkit.notify(error, 'danger');
             });
 

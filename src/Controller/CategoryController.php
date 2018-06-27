@@ -49,6 +49,18 @@ class CategoryController{
         $post->content = App::content()->applyPlugins($post->content, ['post' => $post, 'markdown' => $post->get('markdown'), 'readmore' => true]);
     }
 
+    if (isset($category->data['meta']['og:description'])) {
+      $description = $category->data['meta']['og:description'];
+    }else{
+      $description = '';
+    }
+
+    if (isset($category->data['meta']['og:title'])) {
+      $title = $category->data['meta']['og:title'];
+    }else{
+      $title = $category->title;
+    }
+
     return [
         '$view' => [
             'title' => __('Blog'),
@@ -57,8 +69,10 @@ class CategoryController{
                 'rel' => 'alternate',
                 'href' => App::url('@dpnblog/feed'),
                 'title' => App::module('system/site')->config('title'),
-                'type' => App::feed()->create($this->blog->config('feed.type'))->getMIMEType()
-            ]
+                'type' => App::feed()->create($this->blog->config('feed.type'))->getMIMEType(),
+            ],
+            'og:title' => $title,
+            'og:description' => $description,
         ],
         'category'  => $id,
         'blog'      => $this->blog,
