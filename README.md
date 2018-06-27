@@ -1,4 +1,4 @@
-![banner](https://res.cloudinary.com/devpenguen/image/upload/v1530032356/image_km8vta.png)
+![banner](https://res.cloudinary.com/devpenguen/image/upload/v1530088396/image_dct8au.png)
 
 ### Advanced Blog
 
