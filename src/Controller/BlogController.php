@@ -196,7 +196,7 @@ class BlogController
           }
 
           $category = Category::create([
-            'status'  => 1,
+            'status'  => 2,
           ]);
         }
 

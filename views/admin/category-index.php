@@ -8,12 +8,12 @@
             <ul class="uk-subnav pk-subnav-icon">
                 <li><a class="pk-icon-delete pk-icon-hover" :title="'Delete' | trans" data-uk-tooltip="{delay: 500}" @click="remove" v-confirm="'Delete Posts?'"></a></li>
             </ul>
-        </div>       
+        </div>
 
     </div>
     <div data-uk-margin="">
 
-        <a class="uk-button uk-button-primary" href="/admin/dpnblog/category/edit">{{'Add Category' | trans}}</a>
+        <a class="uk-button uk-button-primary" href="@dpnblog/category/edit">{{'Add Category' | trans}}</a>
 
     </div>
   </div>
