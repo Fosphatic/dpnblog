@@ -1,9 +1,9 @@
 <?php
 
-namespace Dpn\Blog\Controller;
+namespace Pastheme\Blog\Controller;
 use Pagekit\Application as App;
-use Dpn\Blog\Model\Category;
-use Dpn\Blog\Model\Post;
+use Pastheme\Blog\Model\Category;
+use Pastheme\Blog\Model\Post;
 
 class CategoryController{
 

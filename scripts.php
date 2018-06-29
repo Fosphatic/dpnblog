@@ -6,8 +6,8 @@ return [
 
         $util = $app['db']->getUtility();
 
-        if ($util->tableExists('@blog_post') === false) {
-            $util->createTable('@blog_post', function ($table) {
+        if ($util->tableExists('@dpnblog_post') === false) {
+            $util->createTable('@dpnblog_post', function ($table) {
                 $table->addColumn('id', 'integer', ['unsigned' => true, 'length' => 10, 'autoincrement' => true]);
                 $table->addColumn('user_id', 'integer', ['unsigned' => true, 'length' => 10, 'default' => 0]);
                 $table->addColumn('slug', 'string', ['length' => 255]);
@@ -31,8 +31,8 @@ return [
             });
         }
 
-        if($util->tableExists('@blog_category') === false){
-            $util->createTable('@blog_category' , function($table) {
+        if($util->tableExists('@dpnblog_category') === false){
+            $util->createTable('@dpnblog_category' , function($table) {
                 $table->addColumn('id', 'integer', ['unsigned' => true, 'length' => 10, 'autoincrement' => true]);
                 $table->addColumn('title', 'string', ['length' => 255]);
                 $table->addColumn('slug', 'string', ['length' => 255]);
@@ -44,8 +44,8 @@ return [
             });
         }
 
-        if ($util->tableExists('@blog_comment') === false) {
-            $util->createTable('@blog_comment', function ($table) {
+        if ($util->tableExists('@dpnblog_comment') === false) {
+            $util->createTable('@dpnblog_comment', function ($table) {
                 $table->addColumn('id', 'integer', ['unsigned' => true, 'length' => 10, 'autoincrement' => true]);
                 $table->addColumn('parent_id', 'integer', ['unsigned' => true, 'length' => 10]);
                 $table->addColumn('post_id', 'integer', ['unsigned' => true, 'length' => 10]);
@@ -72,16 +72,16 @@ return [
 
         $util = $app['db']->getUtility();
 
-        if ($util->tableExists('@blog_post')) {
-            $util->dropTable('@blog_post');
+        if ($util->tableExists('@dpnblog_post')) {
+            $util->dropTable('@dpnblog_post');
         }
 
-        if ($util->tableExists('@blog_comment')) {
-            $util->dropTable('@blog_comment');
+        if ($util->tableExists('@dpnblog_comment')) {
+            $util->dropTable('@dpnblog_comment');
         }
 
-        if ($util->tableExists('@blog_category')) {
-            $util->dropTable('@blog_category');
+        if ($util->tableExists('@dpnblog_category')) {
+            $util->dropTable('@dpnblog_category');
         }
     },
 
@@ -98,7 +98,7 @@ return [
             $db = $app['db'];
             $util = $db->getUtility();
 
-            foreach (['@blog_post', '@blog_comment'] as $name) {
+            foreach (['@dpnblog_post', '@dpnblog_comment'] as $name) {
                 $table = $util->getTable($name);
 
                 foreach ($table->getIndexes() as $name => $index) {

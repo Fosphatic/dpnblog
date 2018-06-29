@@ -1,9 +1,9 @@
 <?php
 
-use Dpn\Blog\Content\ReadmorePlugin;
-use Dpn\Blog\Event\PostListener;
-use Dpn\Blog\Event\RouteListener;
-use Dpn\Blog\Event\CategoryRouteListener;
+use Pastheme\Blog\Content\ReadmorePlugin;
+use Pastheme\Blog\Event\PostListener;
+use Pastheme\Blog\Event\RouteListener;
+use Pastheme\Blog\Event\CategoryRouteListener;
 
 return [
 
@@ -11,7 +11,7 @@ return [
 
     'autoload' => [
 
-        'Dpn\\Blog\\' => 'src'
+        'Pastheme\\Blog\\' => 'src'
 
     ],
 
@@ -20,7 +20,7 @@ return [
         'dpnblog' => [
             'name' => '@dpnblog',
             'label' => 'Blog',
-            'controller' => 'Dpn\\Blog\\Controller\\SiteController',
+            'controller' => 'Pastheme\\Blog\\Controller\\SiteController',
             'protected' => true,
             'frontpage' => true
         ]
@@ -32,19 +32,19 @@ return [
         '/dpnblog' => [
             'name' => '@dpnblog',
             'controller' => [
-              'Dpn\\Blog\\Controller\\BlogController'
+              'Pastheme\\Blog\\Controller\\BlogController'
             ]
         ],
         '/category' => [
             'name' => '@blogcategory',
-            'controller' => 'Dpn\\Blog\\Controller\\CategoryController'
+            'controller' => 'Pastheme\\Blog\\Controller\\CategoryController'
         ],
         '/api/dpnblog' => [
             'name' => '@dpnblog/api',
             'controller' => [
-                'Dpn\\Blog\\Controller\\PostApiController',
-                'Dpn\\Blog\\Controller\\CategoryApiController',
-                'Dpn\\Blog\\Controller\\CommentApiController'
+                'Pastheme\\Blog\\Controller\\PostApiController',
+                'Pastheme\\Blog\\Controller\\CategoryApiController',
+                'Pastheme\\Blog\\Controller\\CommentApiController'
             ]
         ]
 

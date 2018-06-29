@@ -7,7 +7,7 @@
           </div>
           <hr />
           <div class="uk-form-row">
-            <input id="form-meta-title" class="uk-width-1-1 uk-form-large" type="text" :placeholder="'Meta Title' | trans" v-model="category.data.meta['og:title']">
+            <input-meta id="form-meta-title" class="uk-width-1-1 uk-form-large" type="text" :placeholder="'Meta Title' | trans" v-model="category.data.meta['og:title']">
           </div>
           <div class="uk-form-row">
             <textarea class="uk-width-1-1 uk-form-large uk-height-medium" id="form-meta-description" :placeholder="'Meta Desc' | trans" rows="8" v-model="category.data.meta['og:description']"></textarea>

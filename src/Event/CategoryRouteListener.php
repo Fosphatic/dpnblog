@@ -1,9 +1,9 @@
 <?php
 
-namespace Dpn\Blog\Event;
+namespace Pastheme\Blog\Event;
 
 use Pagekit\Application as App;
-use Dpn\Blog\CategoryUrlResolver;
+use Pastheme\Blog\CategoryUrlResolver;
 use Pagekit\Event\EventSubscriberInterface;
 
 class CategoryRouteListener implements EventSubscriberInterface
@@ -22,7 +22,7 @@ class CategoryRouteListener implements EventSubscriberInterface
     public function onCategoryRoute($event, $route)
     {
         if ($route->getName() == '@blogcategory/id' && CategoryUrlResolver::getPermalink()) {
-            App::routes()->alias(dirname($route->getPath()).'/'.ltrim(CategoryUrlResolver::getPermalink(), '/'), '@blogcategory/id', ['_resolver' => 'Dpn\Blog\CategoryUrlResolver']);
+            App::routes()->alias(dirname($route->getPath()).'/'.ltrim(CategoryUrlResolver::getPermalink(), '/'), '@blogcategory/id', ['_resolver' => 'Pastheme\Blog\CategoryUrlResolver']);
         }
 
     }

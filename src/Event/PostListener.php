@@ -1,8 +1,8 @@
 <?php
 
-namespace Dpn\Blog\Event;
+namespace Pastheme\Blog\Event;
 
-use Dpn\Blog\Model\Post;
+use Pastheme\Blog\Model\Post;
 use Pagekit\Comment\Model\Comment;
 use Pagekit\Event\EventSubscriberInterface;
 

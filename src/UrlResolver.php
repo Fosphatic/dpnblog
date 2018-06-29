@@ -1,9 +1,9 @@
 <?php
 
-namespace Dpn\Blog;
+namespace Pastheme\Blog;
 
 use Pagekit\Application as App;
-use Dpn\Blog\Model\Post;
+use Pastheme\Blog\Model\Post;
 use Pagekit\Routing\ParamsResolverInterface;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 

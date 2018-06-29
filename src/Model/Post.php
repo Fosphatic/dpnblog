@@ -1,6 +1,6 @@
 <?php
 
-namespace Dpn\Blog\Model;
+namespace Pastheme\Blog\Model;
 
 use Pagekit\Application as App;
 use Pagekit\System\Model\DataModelTrait;
@@ -8,7 +8,7 @@ use Pagekit\User\Model\AccessModelTrait;
 use Pagekit\User\Model\User;
 
 /**
- * @Entity(tableClass="@blog_post")
+ * @Entity(tableClass="@dpnblog_post")
  */
 class Post implements \JsonSerializable
 {

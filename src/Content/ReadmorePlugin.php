@@ -1,6 +1,6 @@
 <?php
 
-namespace Dpn\Blog\Content;
+namespace Pastheme\Blog\Content;
 
 use Pagekit\Content\Event\ContentEvent;
 use Pagekit\Event\EventSubscriberInterface;

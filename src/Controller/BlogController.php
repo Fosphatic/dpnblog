@@ -1,12 +1,12 @@
 <?php
 
-namespace Dpn\Blog\Controller;
+namespace Pastheme\Blog\Controller;
 
 use Pagekit\Application as App;
-use Dpn\Blog\Model\Comment;
-use Dpn\Blog\Model\Post;
+use Pastheme\Blog\Model\Comment;
+use Pastheme\Blog\Model\Post;
 use Pagekit\User\Model\Role;
-use Dpn\Blog\Model\Category;
+use Pastheme\Blog\Model\Category;
 
 /**
  * @Access(admin=true)
@@ -71,7 +71,7 @@ class BlogController
             }
 
             $category = App::db()->createQueryBuilder()
-              ->from('@blog_category')
+              ->from('@dpnblog_category')
               ->where(['status' => 2])
               ->get();
 
@@ -196,7 +196,7 @@ class BlogController
           }
 
           $category = Category::create([
-            'status'  => 2,
+            'status'  => 2
           ]);
         }
 

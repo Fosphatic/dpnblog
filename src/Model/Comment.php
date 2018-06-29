@@ -1,11 +1,11 @@
 <?php
 
-namespace Dpn\Blog\Model;
+namespace Pastheme\Blog\Model;
 
 use Pagekit\Comment\Model\Comment as BaseComment;
 
 /**
- * @Entity(tableClass="@blog_comment")
+ * @Entity(tableClass="@dpnblog_comment")
  */
 class Comment extends BaseComment implements \JsonSerializable
 {

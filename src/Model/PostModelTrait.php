@@ -1,6 +1,6 @@
 <?php
 
-namespace Dpn\Blog\Model;
+namespace Pastheme\Blog\Model;
 
 use Pagekit\Application as App;
 use Pagekit\Database\ORM\ModelTrait;
@@ -53,6 +53,6 @@ trait PostModelTrait
      */
     public static function deleting($event, Post $post)
     {
-        self::getConnection()->delete('@blog_comment', ['post_id' => $post->id]);
+        self::getConnection()->delete('@dpnblog_comment', ['post_id' => $post->id]);
     }
 }

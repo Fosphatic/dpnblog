@@ -1,9 +1,9 @@
 <?php
 
-namespace Dpn\Blog\Event;
+namespace Pastheme\Blog\Event;
 
 use Pagekit\Application as App;
-use Dpn\Blog\UrlResolver;
+use Pastheme\Blog\UrlResolver;
 use Pagekit\Event\EventSubscriberInterface;
 
 class RouteListener implements EventSubscriberInterface
@@ -22,7 +22,7 @@ class RouteListener implements EventSubscriberInterface
     public function onConfigureRoute($event, $route)
     {
         if ($route->getName() == '@dpnblog/id' && UrlResolver::getPermalink()) {
-            App::routes()->alias(dirname($route->getPath()).'/'.ltrim(UrlResolver::getPermalink(), '/'), '@dpnblog/id', ['_resolver' => 'Dpn\Blog\UrlResolver']);
+            App::routes()->alias(dirname($route->getPath()).'/'.ltrim(UrlResolver::getPermalink(), '/'), '@dpnblog/id', ['_resolver' => 'Pastheme\Blog\UrlResolver']);
         }
 
     }

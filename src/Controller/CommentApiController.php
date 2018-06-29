@@ -1,10 +1,10 @@
 <?php
 
-namespace Dpn\Blog\Controller;
+namespace Pastheme\Blog\Controller;
 
 use Pagekit\Application as App;
-use Dpn\Blog\Model\Comment;
-use Dpn\Blog\Model\Post;
+use Pastheme\Blog\Model\Comment;
+use Pastheme\Blog\Model\Post;
 
 /**
  * @Route("comment", name="comment")

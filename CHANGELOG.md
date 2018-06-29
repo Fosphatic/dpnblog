@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.1.3
+
+**June 29, 2018 3:04 PM**
+
+### Change
+
+- Dpnblog reposu pastheme taşındı.
+- Tablo yapısı ayrı olarak hesaplandı Orjinal blog uzantısından tamamen farklı kılındı.
+
+
 ## 1.1.2
 
 **June 27, 2018 10:53 AM**

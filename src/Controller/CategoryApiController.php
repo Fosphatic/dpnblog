@@ -1,11 +1,11 @@
 <?php
 
-namespace Dpn\Blog\Controller;
+namespace Pastheme\Blog\Controller;
 
 use Pagekit\Application as App;
-use Dpn\Blog\Model\Post;
+use Pastheme\Blog\Model\Post;
 use Pagekit\User\Model\Role;
-use Dpn\Blog\Model\Category;
+use Pastheme\Blog\Model\Category;
 
 /**
 * @Access("dpnblog: manage own posts || dpnblog: manage all posts")
@@ -20,15 +20,14 @@ class CategoryApiController
   */
   public function saveAction($data)
   {
+
+    print_r($data);
+
     if (!$data['id']) {
       unset($data['category']['id']);
       $query = Category::create();
     }else{
       $query = Category::find($data['id']);
-    }
-
-    if (empty($data['category']['data'])) {
-      $data['category']['data'] = json_encode($data['category']['data']);
     }
 
     if (empty($data['category']['date'])) {

@@ -6,7 +6,7 @@
  * Time: 13:21
  */
 
-namespace Dpn\Blog\Model;
+namespace Pastheme\Blog\Model;
 
 use Pagekit\Application as App;
 use Pagekit\Database\ORM\ModelTrait;
@@ -14,8 +14,8 @@ use Pagekit\Database\ORM\ModelTrait;
 
 /**
  * Class Category
- * @package Dpn\Blog\Model
- * @Entity(tableClass="@blog_category")
+ * @package Pastheme\Blog\Model
+ * @Entity(tableClass="@dpnblog_category")
  */
 class Category
 {

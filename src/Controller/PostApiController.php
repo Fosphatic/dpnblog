@@ -1,10 +1,10 @@
 <?php
 
-namespace Dpn\Blog\Controller;
+namespace Pastheme\Blog\Controller;
 
 use Pagekit\Application as App;
-use Dpn\Blog\Model\Post;
-use Dpn\Blog\Model\Category;
+use Pastheme\Blog\Model\Post;
+use Pastheme\Blog\Model\Category;
 
 /**
  * @Access("dpnblog: manage own posts || dpnblog: manage all posts")
@@ -72,6 +72,9 @@ class PostApiController
      */
     public function saveAction($data, $id = 0)
     {
+
+        print_r($data);
+
         if (!$id || !$post = Post::find($id)) {
 
             if ($id) {
