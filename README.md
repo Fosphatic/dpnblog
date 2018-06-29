@@ -4,8 +4,6 @@
 
 If you want to have a blog that is always up to date. An Advanced blog for you. In fact, It is quoted from the pagekit. But Advanced Blog has category and tags system. So that It is best biggest difference.
 
-`Before you use the advanced blog. You should remove the Pagekit Orjinal Blog Extension`
-
 - Category System ( up to date )
 - Advanced Blog Table system fixed ( up to date)
 - Tags ( we think planning to update in 1.2.0 Beta )
