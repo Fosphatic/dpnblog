@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pastheme/devblog.git"
+    "url": "git+https://github.com/pastheme/dpnblog.git"
   },
   "keywords": [],
   "author": "Pastheme",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pastheme/devblog/issues"
+    "url": "https://github.com/pastheme/dpnblog/issues"
   },
-  "homepage": "https://github.com/pastheme/devblog#readme",
+  "homepage": "https://github.com/pastheme/dpnblog#readme",
   "devDependencies": {
     "babel-core": "^6.1.2",
     "babel-loader": "^6.1.0",
