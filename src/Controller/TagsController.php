@@ -21,38 +21,42 @@ class TagsController{
   }
 
   /**
-  * @Route("/id" , name="id" , requirements={"page" = "\d+"})
-  * @Request({"page": "int"})
+  * @Route("/{tags}" , name="tags" , requirements={"page" = "\d+"})
+  * @Request({"page": "int" , "tags":"string"})
   */
-  public function indexAction($page = 1 , $id = null){
+  public function indexAction($page = 1 , $tags = null){
 
-    if (empty($id) || !$category = Category::query()->where('id = ?' , [$id])->first()) {
-      App::abort(404 , 'Category Not Found');
+    if (empty($tags)) {
+      App::abort('404' , 'Not Found Tags');
     }
 
-    $query = Post::where(['status = ?', 'date < ?' , 'category_id = ?'], [Post::STATUS_PUBLISHED, new \DateTime , $category->id])->where(function ($query) {
-        return $query->where('roles IS NULL')->whereInSet('roles', App::user()->roles, false, 'OR');
+    $sqlTags = Post::where(["status = :status", "date < :date" , "tags LIKE :search"] , [":status" => Post::STATUS_PUBLISHED, ":date" => new \DateTime  , ":search" => "%{$tags}%"])->where(function ($sqlTags) {
+        return $sqlTags->where('roles IS NULL')->whereInSet('roles', App::user()->roles, false, 'OR');
     })->related(['user' , 'category']);
 
     if (!$limit = $this->blog->config('posts.posts_per_page')) {
         $limit = 10;
     }
 
-    $count = $query->count('id');
+    $count = $sqlTags->count('id');
     $total = ceil($count / $limit);
     $page = max(1, min($total, $page));
 
-    $query->offset(($page - 1) * $limit)->limit($limit)->orderBy('date', 'DESC');
+    $sqlTags->offset(($page - 1) * $limit)->limit($limit)->orderBy('date', 'DESC');
 
-    foreach ($posts = $query->get() as $post) {
+    foreach ($posts = $sqlTags->get() as $post) {
         $post->excerpt = App::content()->applyPlugins($post->excerpt, ['post' => $post, 'markdown' => $post->get('markdown')]);
         $post->content = App::content()->applyPlugins($post->content, ['post' => $post, 'markdown' => $post->get('markdown'), 'readmore' => true]);
+    }
+
+    if (empty($posts)) {
+      App::abort('404' , 'Not Found Tags');
     }
 
     return [
         '$view' => [
             'title' => __('Blog'),
-            'name' => 'dpnblog/category.php',
+            'name' => 'dpnblog/posts.php',
             'link:feed' => [
                 'rel' => 'alternate',
                 'href' => App::url('@dpnblog/feed'),
@@ -60,11 +64,10 @@ class TagsController{
                 'type' => App::feed()->create($this->blog->config('feed.type'))->getMIMEType()
             ]
         ],
-        'category'  => $id,
-        'blog'      => $this->blog,
-        'posts'     => $posts,
-        'total'     => $total,
-        'page'      => $page
+        'blog' => $this->blog,
+        'posts' => $posts,
+        'total' => $total,
+        'page' => $page
     ];
 
   }

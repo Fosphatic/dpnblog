@@ -21,8 +21,6 @@ class CategoryApiController
   public function saveAction($data)
   {
 
-    print_r($data);
-
     if (!$data['id']) {
       unset($data['category']['id']);
       $query = Category::create();

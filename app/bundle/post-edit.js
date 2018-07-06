@@ -247,7 +247,7 @@
 /* 11 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n<div>\n  <div v-if=\"tags.length > 0\" class=\"uk-panel uk-panel-box\" style=\"padding:10px;\">\n    <ul class=\"uk-grid uk-grid-small\" data-uk-margin=\"\">\n      <li v-for=\"(indis , tag) in tags\">\n        <span @click=\"remove(indis)\" class=\"uk-badge uk-badge-success\">\n          {{tag}}\n          <i class=\"uk-icon-close\"></i>\n        </span>\n      </li>\n    </ul>\n  </div>\n  <input class=\"uk-form-large uk-width-1-1\" v-model=\"modelTag\" v-bind:placeholder=\"'Press key ctrl - enter' | trans\" @keyup.ctrl.enter=\"addTags\">\n</div>\n";
+	module.exports = "\n<div>\n  <div v-if=\"tags.length > 0\" class=\"uk-panel uk-panel-box\" style=\"padding:10px;\">\n    <ul class=\"uk-grid uk-grid-small\" data-uk-margin=\"\">\n      <li v-for=\"(indis , tag) in tags\">\n        <span @click=\"remove(indis)\" class=\"uk-badge uk-badge-success\">\n          {{tag}}\n          <i class=\"uk-icon-close\"></i>\n        </span>\n      </li>\n    </ul>\n  </div>\n  <input class=\"uk-form-large uk-width-1-1\" v-model=\"modelTag\" v-bind:placeholder=\"'Press Space' | trans\" @keyup.ctrl.space=\"addTags\">\n</div>\n";
 
 /***/ }),
 /* 12 */

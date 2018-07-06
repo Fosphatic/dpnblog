@@ -39,6 +39,10 @@ return [
             'name' => '@blogcategory',
             'controller' => 'Pastheme\\Blog\\Controller\\CategoryController'
         ],
+        '/tags' => [
+            'name' => '@blogcategory',
+            'controller' => 'Pastheme\\Blog\\Controller\\TagsController'
+        ],
         '/api/dpnblog' => [
             'name' => '@dpnblog/api',
             'controller' => [

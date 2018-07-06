@@ -196,7 +196,12 @@ class BlogController
           }
 
           $category = Category::create([
-            'status'  => 2
+            'status'  => 2,
+            'data'  => [
+              'meta' => [
+                'og:title' => ''
+              ]
+            ]
           ]);
         }
 

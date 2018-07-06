@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.2.0
+
+**July 6, 2018 11:51 AM**
+
+### Add
+
+- Tags sayfası eklendi
+
+### Fixed
+
+- Kategori düzenlerken meta verilerin boşa çıkma sorunu düzeltildi.
+
 ## 1.1.3
 
 **June 29, 2018 3:04 PM**

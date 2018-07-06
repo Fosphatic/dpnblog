@@ -92,7 +92,7 @@
 	                this.$set('category', success.data);
 
 	            }).catch(function(error) {
-	                UIkit.notify(error, 'danger');
+	                UIkit.notify('Hata', 'danger');
 	            });
 
 	        }

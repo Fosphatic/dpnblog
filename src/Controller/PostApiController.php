@@ -73,8 +73,6 @@ class PostApiController
     public function saveAction($data, $id = 0)
     {
 
-        print_r($data);
-
         if (!$id || !$post = Post::find($id)) {
 
             if ($id) {
@@ -86,6 +84,10 @@ class PostApiController
 
         if (empty($data['tags'])) {
           $data['tags'] = [];
+        }else{
+          foreach ($data['tags'] as $key => $value) {
+            $data['tags'][$key] = str_replace(' ', '' , strtolower(trim($value)));
+          }
         }
 
         if (!$data['slug'] = App::filter($data['slug'] ?: $data['title'], 'slugify')) {
@@ -175,5 +177,6 @@ class PostApiController
 
         return ['message' => 'success'];
     }
+
 
 }

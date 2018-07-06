@@ -29,7 +29,7 @@
           </li>
           <?php foreach ($post->tags as $tag): ?>
             <li>
-              <a href="" class="uk-text-small"><?= $tag ?></a>
+              <a href="<?= $view->url('@blogcategory/tags' , ['tags' => $tag]) ?>" class="uk-text-small"><?= $tag ?></a>
             </li>
           <?php endforeach; ?>
         </ul>

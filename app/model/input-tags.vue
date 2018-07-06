@@ -10,7 +10,7 @@
         </li>
       </ul>
     </div>
-    <input class="uk-form-large uk-width-1-1" v-model="modelTag" v-bind:placeholder="'Press key ctrl - enter' | trans" @keyup.ctrl.enter="addTags">
+    <input class="uk-form-large uk-width-1-1" v-model="modelTag" v-bind:placeholder="'Press Space' | trans" @keyup.ctrl.space="addTags">
   </div>
 </template>
 
