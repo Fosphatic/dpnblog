@@ -6,8 +6,9 @@ use Pagekit\Application as App;
 use Pastheme\Blog\Model\Post;
 use Pastheme\Blog\Model\Category;
 use Pagekit\Module\Module;
+use Pastheme\Blog\Conf\GeneralConf;
 
-class SiteController
+class SiteController extends GeneralConf
 {
     /**
      * @var Module
@@ -112,6 +113,7 @@ class SiteController
      */
     public function postAction($id = 0)
     {
+
         if (!$post = Post::where(['id = ?', 'status = ?', 'date < ?'], [$id, Post::STATUS_PUBLISHED, new \DateTime])->related(['user' , 'category'])->first()) {
             App::abort(404, __('Post not found!'));
         }
@@ -158,7 +160,8 @@ class SiteController
                 ]
             ],
             'blog' => $this->blog,
-            'post' => $post
+            'post' => $post,
+            'like' => self::likeActive() === true
         ];
     }
 }

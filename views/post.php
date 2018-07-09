@@ -1,5 +1,9 @@
 <?php $view->script('post', 'dpnblog:app/bundle/post.js', 'vue') ?>
 
+<?php if ($like === true): ?>
+  <?php $view->script('like', 'dpnblog:app/bundle/like.js', 'vue') ?>
+<?php endif; ?>
+
 <article class="uk-article">
 
     <?php if ($image = $post->get('image.src')): ?>
@@ -34,6 +38,16 @@
           <?php endforeach; ?>
         </ul>
       </p>
+    <?php endif; ?>
+
+    <?php if ($like === true): ?>
+        <ul class="uk-grid">
+          <?php if ($like === true): ?>
+            <li id="like">
+              <button class="uk-button uk-button-default"><i class="uk-icon-heart"></i> Like 15</button>
+            </li>
+          <?php endif; ?>
+        </ul>
     <?php endif; ?>
 
     <?= $view->render('dpnblog/comments.php') ?>

@@ -8,8 +8,9 @@
             <div class="uk-panel">
 
                 <ul class="uk-nav uk-nav-side pk-nav-large" data-uk-tab="{ connect: '#tab-content' }">
-                    <li><a><i class="pk-icon-large-settings uk-margin-right"></i> {{ 'General' | trans }}</a></li>
-                    <li><a><i class="pk-icon-large-comment uk-icon-small uk-margin-right"></i> {{ 'Comments' | trans }}</a></li>
+                    <li><a><i class="uk-icon-tasks uk-icon-small uk-margin-right"></i> {{ 'General' | trans }}</a></li>
+                    <li><a><i class="uk-icon-comments uk-icon-small uk-margin-right"></i> {{ 'Comments' | trans }}</a></li>
+                    <li><a><i class="uk-icon-share-alt uk-icon-small uk-margin-right"></i> {{ 'Social Share' | trans }}</a></li>
                 </ul>
 
             </div>
@@ -141,6 +142,9 @@
                         </div>
                     </div>
 
+                </li>
+                <li>
+                  <?= $view->render('dpnblog:views/admin/settings/social.php') ?>
                 </li>
             </ul>
 

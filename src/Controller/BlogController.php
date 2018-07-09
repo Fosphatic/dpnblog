@@ -7,11 +7,12 @@ use Pastheme\Blog\Model\Comment;
 use Pastheme\Blog\Model\Post;
 use Pagekit\User\Model\Role;
 use Pastheme\Blog\Model\Category;
+use Pastheme\Blog\Conf\GeneralConf;
 
 /**
  * @Access(admin=true)
  */
-class BlogController
+class BlogController extends GeneralConf
 {
     /**
      * @Access("dpnblog: manage own posts || dpnblog: manage all posts")

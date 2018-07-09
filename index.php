@@ -132,6 +132,13 @@ return [
 
     'config' => [
 
+        'share' => [
+          'active'  => true,
+          'model'   => 'default'
+        ],
+
+        'like'  => true,
+
         'comments' => [
 
             'autoclose' => false,

@@ -13,6 +13,7 @@ module.exports = [
             "post-meta": "./app/components/post-meta.vue",
             "category-index": "./app/views/admin/category-index.js",
             "category-edit": "./app/views/admin/category-edit.js",
+            "like": "./app/views/like.js",
         },
         output: {
             filename: "./app/bundle/[name].js"
