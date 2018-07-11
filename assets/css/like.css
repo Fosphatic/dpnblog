@@ -1,0 +1,26 @@
+.tm-like-button{
+  border:none;
+  border-radius: 100%;
+  height: 30px;
+  line-height: 30px;
+  background: transparent;
+}
+.tm-like-button > i:hover{
+  font-size:1rem;
+}
+
+
+.tm-like-button:hover{
+
+}
+.tm-like-button:focus{
+
+}
+
+.tm-like-icon{
+
+}
+
+.tm-dislike-icon{
+
+}
