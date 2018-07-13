@@ -48,7 +48,8 @@ return [
             'controller' => [
                 'Pastheme\\Blog\\Controller\\PostApiController',
                 'Pastheme\\Blog\\Controller\\CategoryApiController',
-                'Pastheme\\Blog\\Controller\\CommentApiController'
+                'Pastheme\\Blog\\Controller\\CommentApiController',
+                'Pastheme\\Blog\\Controller\\ApiComponentController'
             ]
         ]
 

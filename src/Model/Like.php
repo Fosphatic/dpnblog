@@ -20,13 +20,18 @@ class Like{
   public $like_id;
 
   /** @Column(type="string") */
-  public $like;
+  public $like_sy;
 
   /** @Column(type="json_array") */
   public $data;
 
   /** @Column(type="datetime") */
   public $date;
+
+  /**
+  * @BelongsTo(targetEntity="User", keyFrom="user_id")
+  */
+  public $user;
 
 }
 

@@ -66,7 +66,7 @@ class Post implements \JsonSerializable
     public $tags;
 
     /**
-     * @BelongsTo(targetEntity="Pagekit\User\Model\User", keyFrom="user_id")
+     * @BelongsTo(targetEntity="User", keyFrom="user_id")
      */
     public $user;
 

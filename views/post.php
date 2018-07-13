@@ -36,7 +36,7 @@
       </p>
     <?php endif; ?>
 
-    <?= $view->render('dpnblog/like/general.php') ?>
+    <?= $view->render('dpnblog/components/like.php') ?>
 
     <?= $view->render('dpnblog/comments.php') ?>
 

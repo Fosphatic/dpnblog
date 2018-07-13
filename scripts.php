@@ -129,7 +129,7 @@ return [
                 $table->addColumn('id', 'integer', ['unsigned' => true, 'length' => 10, 'autoincrement' => true]);
                 $table->addColumn('user_id' , 'integer' , ['notnull' => false]);
                 $table->addColumn('like_id' , 'integer' , ['notnull' => false]);
-                $table->addColumn('like' , 'string' , ['default' => 'post']);
+                $table->addColumn('like_sy' , 'string' , ['default' => 'post']);
                 $table->addColumn('date', 'datetime', ['notnull' => false]);
                 $table->addColumn('data', 'json_array', ['notnull' => false]);
                 $table->setPrimaryKey(['id']);
