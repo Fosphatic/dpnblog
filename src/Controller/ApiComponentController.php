@@ -43,6 +43,7 @@ class ApiComponentController{
       $user = App::user();
 
       if (!$query = Like::where(['like_sy = ?' , 'like_id = ?' , 'user_id = ?'] , [$like , $post , $user->id] )->first() ) {
+
         $query = Like::create([
             'user_id' => $user->id,
             'like_id' => $post,
@@ -53,7 +54,9 @@ class ApiComponentController{
         $query->save();
 
       }else{
+
         $query->delete();
+
       }
 
       return [

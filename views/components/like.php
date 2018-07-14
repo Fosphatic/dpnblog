@@ -6,7 +6,9 @@
 <?php if ($like === true): ?>
 
   <div id="like" postid="<?= $post->id ?>" class="uk-block uk-block-muted uk-flex uk-flex-middle uk-flex-center">
-    <button class="uk-button uk-button-primary uk-button-large" @click="OnLike('post' , '<?= $post->id ?>')"><i class="uk-icon-heart"></i> Like The Post</button>
+    <button <?= $app['user']->isAuthenticated() === false ? 'data-uk-tooltip title="Login first"':'' ?> class="uk-button uk-button-primary uk-button-large" @click="OnLike('post' , '<?= $post->id ?>')" <?= $app['user']->isAuthenticated() === false ? 'disabled':'' ?>>
+      <i class="uk-icon-heart"></i> Like The Post
+    </button>
     <a v-if="timeLoad === false" class="uk-text-lead uk-margin-left" href="#likesModal" data-uk-modal>{{count}}</a>
 
     <div id="likesModal" class="uk-modal">
