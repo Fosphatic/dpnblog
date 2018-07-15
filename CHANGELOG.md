@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.4.0
+
+**July 15, 2018 11:18 PM**
+
+### Add
+
+- Social Share ``Twitter``
+- Like System
+
 ## 1.2.1
 
 **July 6, 2018 11:51 AM**

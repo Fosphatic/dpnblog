@@ -7,8 +7,8 @@ If you want to have a blog that is always up to date. An Advanced blog for you. 
 - Category System ( up to date )
 - Advanced Blog Table system fixed ( up to date)
 - Tags ( up to date )
-- Social Sharing Media ( we think plannig to update in 1.4.0 Beta )
+- Social Sharing Media ( up to date )
+- Blog post like system ( up to date)
 - Sitemap XML ( we think plannig to update in 2.0.5 Beta )
-- Blog post like system ( we think plannig to update in 1.4.0 Beta)
 
 If you want to see the **[demo](http://pastheme.com/module/advanced-blog)**
