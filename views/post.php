@@ -1,5 +1,5 @@
 <?php $view->script('post', 'dpnblog:app/bundle/post.js', 'vue') ?>
-
+<?php $view->style('dpn-css' , 'dpnblog:assets/css/dpnblog.min.css');?>
 <article class="uk-article">
 
     <?php if ($image = $post->get('image.src')): ?>
@@ -8,17 +8,7 @@
 
     <h1 class="uk-article-title"><?= $post->title ?></h1>
 
-    <article class="uk-comment">
-        <header class="uk-comment-header">
-            <img class="uk-comment-avatar" src="<?= $post->getGravatar() ?>" alt="<?= $post->user->name ?>">
-            <h4 class="uk-comment-title"><?= $post->user->name ?></h4>
-            <div class="uk-comment-meta">
-              <?= __('Posted in') ?>
-              <a class="uk-text-bold" href="<?= $view->url('@blogcategory/id', ['id' => $post->category->id]) ?>"><?= $post->category->title ?></a>
-              <?= __('%date%', ['%date%' => '<time datetime="'.$post->date->format(\DateTime::ATOM).'" v-cloak>{{ "'.$post->date->format(\DateTime::ATOM).'" | date "longDate" }}</time>' ]) ?>
-            </div>
-        </header>
-    </article>
+    <?= $view->render('dpnblog:views/components/author.php') ?>
 
     <div class="uk-margin"><?= $post->content ?></div>
     <?php if (!empty(array_filter($post->tags))): ?>
@@ -35,8 +25,6 @@
         </ul>
       </p>
     <?php endif; ?>
-
-    <?= $view->render('dpnblog/components/like.php') ?>
 
     <?= $view->render('dpnblog/comments.php') ?>
 

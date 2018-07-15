@@ -21,21 +21,6 @@
 </div>
 
 <div class="uk-form-row">
-    <span class="uk-form-label">{{ 'Button Style' | trans }}</span>
-    <div class="uk-form-controls uk-form-controls-text">
-        <p class="uk-form-controls-condensed">
-            <label><input type="radio" v-model="config.share.model" value="default"> {{ 'Default' | trans }}</label>
-        </p>
-        <p class="uk-form-controls-condensed">
-            <label><input type="radio" v-model="config.share.model" value="icon"> {{ 'Just icon' | trans }}</label>
-        </p>
-        <p class="uk-form-controls-condensed">
-            <label><input type="radio" v-model="config.share.model" value="text"> {{ 'Just Text' | trans }}</label>
-        </p>
-    </div>
-</div>
-
-<div class="uk-form-row">
     <span class="uk-form-label">{{ 'Like Active' | trans }}</span>
     <div class="uk-form-controls uk-form-controls-text">
         <p class="uk-form-controls-condensed">

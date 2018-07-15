@@ -161,7 +161,9 @@ class SiteController extends GeneralConf
             ],
             'blog' => $this->blog,
             'post' => $post,
-            'like' => self::likeActive() === true
+            'like' => self::likeActive() === true,
+            'share' => self::shareActive() === true,
+            'desc'  => $description. ' '.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'] 
         ];
     }
 }

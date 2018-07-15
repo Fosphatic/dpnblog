@@ -189,6 +189,7 @@ return [
                 new PostListener(),
                 new ReadmorePlugin
             );
+
         },
 
         'view.scripts' => function ($event, $scripts) {

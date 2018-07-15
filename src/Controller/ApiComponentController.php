@@ -4,78 +4,73 @@ namespace Pastheme\Blog\Controller;
 
 use Pagekit\Application as App;
 use Pastheme\Blog\Model\Like;
+use Pastheme\Blog\Conf\PostReturn;
 
-class ApiComponentController{
+class ApiComponentController extends PostReturn{
 
   /**
   * @Route(methods="POST")
-  * @Request({"id":"int" , "like":"string"} , csrf=true)
+  * @Request({"id":"integer" , "like":"string"} , csrf=true)
   */
   public function getLikeAction($id = null , $like = "post"){
 
-    if (!empty($id)) {
+    if (!App::user()->isAuthenticated()) {
+      $userAuth = false;
+    }else{
+      $user = App::user();
+      $userAuth = $user->id;
 
-      $query = Like::where(['like_id = ?' , 'like_sy = ?'] , [$id , $like])->related('user')->get();
+      if (Like::where(['like_id = ?' , 'like_sy = ?' , 'user_id = ?'] , [$id , $like , $userAuth])->first()) {
+        $controller['hasLike'] = true;
+      }else{
+        $controller['hasLike'] = false;
+      }
 
-      return['status' => 200 , 'liked' => (array) $query];
     }
 
-    return['status' => 400 , 'msg' => 'No Found Post Id'];
+    if (empty($id)) {
+      return self::abort(false , ['status' => 400 , 'err' =>'(Err:002) Function could not find post id'] , $userAuth);
+    }
+
+    $query = Like::where(['like_id = ?' , 'like_sy = ?'] , [$id , $like])->related('user')->get();
+
+    $controller['query'] = $query;
+
+    return self::abort($controller , ['status' => 200 , 'err' =>'Success'] , $userAuth);
 
   }
 
   /**
   * @Route(methods="POST")
-  * @Request({"like":"string" , "post":"integer"} , csrf=true)
+  * @Request({"id":"integer" , "like":"string"} , csrf=true)
   */
-  public function onLikeAction($like = 'post' , $post = null){
+  public function likeAction($id = null , $like = "post"){
 
-    try {
-
-      if (empty($post)) {
-        App::abort(404 , 'Not Fount Post ID');
-      }
-
-      if (App::user()->isAuthenticated() === false) {
-        App::abort(404 , 'UnAuthenticated');
-      }
-
-      $user = App::user();
-
-      if (!$query = Like::where(['like_sy = ?' , 'like_id = ?' , 'user_id = ?'] , [$like , $post , $user->id] )->first() ) {
-
-        $query = Like::create([
-            'user_id' => $user->id,
-            'like_id' => $post,
-            'like_sy'    => $like,
-            'date'    => new \DateTime(),
-        ]);
-
-        $query->save();
-
-      }else{
-
-        $query->delete();
-
-      }
-
-      return [
-        'status' => 200,
-      ];
-
-
-    } catch (\Exception $e) {
-
-      return [
-        'status' => 400,
-        'msg'    => 'Error'
-      ];
-
+    if (!App::user()->isAuthenticated()) {
+      return self::abort(false , ['status' => 400 , 'err' =>'(Err:003) You must log in first']);
     }
 
+    $user = App::user();
+
+    if (!$query = Like::where(['like_sy = ?' , 'like_id = ?' , 'user_id = ?'] , [$like , $id , $user->id] )->first() ) {
+
+      $query = Like::create([
+          'user_id' => $user->id,
+          'like_id' => $id,
+          'like_sy' => $like,
+          'date'    => new \DateTime(),
+      ]);
+      $query->save();
+
+      return self::abort(false , ['status' => 200 , 'err' =>'Success']);
+
+    }else{
+      $query->delete();
+
+      return self::abort(false , ['status' => 200 , 'err' =>'Success']);
+    }
 
   }
-
 
 }
 

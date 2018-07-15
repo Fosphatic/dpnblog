@@ -16,6 +16,16 @@ class GeneralConf{
 
   }
 
+  public function shareActive(){
+
+    $module = App::module('dpnblog');
+
+    if ($module->config['share']['active'] === true) {
+      return true;
+    }
+
+  }
+
 }
 
 ?>
