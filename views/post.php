@@ -26,6 +26,6 @@
       </p>
     <?php endif; ?>
 
-    <?= $view->render('dpnblog/comments.php') ?>
+    <?= $view->render('dpnblog:views/comments.php') ?>
 
 </article>

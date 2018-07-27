@@ -62,6 +62,8 @@ return [
               $table->addIndex(['post_id', 'status'], '@BLOG_COMMENT_POST_ID_STATUS');
           });
       }
+
+
     },
 
     'uninstall' => function ($app) {
@@ -112,24 +114,20 @@ return [
           $util->migrate();
       },
 
-      '1.4.0' => function ($app) {
-
-          $db = $app['db'];
-          $util = $db->getUtility();
-
-          if ($util->tableExists('@dpnblog_like') === false) {
-            $util->createTable('@dpnblog_like' , function($table){
-              $table->addColumn('id', 'integer', ['unsigned' => true, 'length' => 10, 'autoincrement' => true]);
-              $table->addColumn('user_id' , 'integer' , ['notnull' => false]);
-              $table->addColumn('like_id' , 'integer' , ['notnull' => false]);
-              $table->addColumn('like_sy' , 'string' , ['default' => 'post']);
-              $table->addColumn('date', 'datetime', ['notnull' => false]);
-              $table->addColumn('data', 'json_array', ['notnull' => false]);
-              $table->setPrimaryKey(['id']);
-            });
-          }
-
-      },
+      '1.4.0' => function($app){
+        $util = $app['db']->getUtility();
+        if ($util->tableExists('@dpnblog_like') == false) {
+          $util->createTable('@dpnblog_like' , function($table){
+            $table->addColumn('id', 'integer', ['unsigned' => true, 'length' => 10, 'autoincrement' => true]);
+            $table->addColumn('user_id' , 'integer' , ['notnull' => false]);
+            $table->addColumn('like_id' , 'integer' , ['notnull' => false]);
+            $table->addColumn('like_sy' , 'string' , ['default' => 'post']);
+            $table->addColumn('date', 'datetime', ['notnull' => false]);
+            $table->addColumn('data', 'json_array', ['notnull' => false]);
+            $table->setPrimaryKey(['id']);
+          });
+        }
+      }
 
     ]
 ];
