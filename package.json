@@ -1,6 +1,6 @@
 {
   "name": "dpnblog",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "If you want to have a blog that is always up to date. An Advanced blog for you.",
   "main": "webpack.config.js",
   "scripts": {

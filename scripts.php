@@ -114,7 +114,7 @@ return [
           $util->migrate();
       },
 
-      '1.4.0' => function($app){
+      '1.4.2' => function($app){
         $util = $app['db']->getUtility();
         if ($util->tableExists('@dpnblog_like') == false) {
           $util->createTable('@dpnblog_like' , function($table){
