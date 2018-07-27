@@ -11,7 +11,7 @@
 
     <article class="uk-comment">
         <header class="uk-comment-header">
-            <img class="uk-comment-avatar" src="<?= $post->getGravatar() ?>" alt="<?= $post->user->name ?>">
+            <img class="uk-comment-avatar" width="50" src="<?= $post->getGravatar() ?>" alt="<?= $post->user->name ?>">
             <h4 class="uk-comment-title"><?= $post->user->name ?></h4>
             <div class="uk-comment-meta">
               <?= __('Posted in') ?>

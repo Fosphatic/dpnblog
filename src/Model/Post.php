@@ -119,7 +119,7 @@ class Post implements \JsonSerializable
       if (isset($this->user)) {
 
         $email = $this->user->email;
-        $s = 50;
+        $s = 200;
         $d = 'mp';
         $r = 'g';
         $img = false;

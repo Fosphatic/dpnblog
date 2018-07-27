@@ -2,7 +2,7 @@
 
 <article id="app" class="uk-comment" v-cloak>
     <header class="uk-comment-header">
-        <img class="uk-comment-avatar" src="<?= $post->getGravatar() ?>" alt="<?= $post->user->name ?>">
+        <img class="uk-comment-avatar" width="50" src="<?= $post->getGravatar() ?>" alt="<?= $post->user->name ?>">
         <div class="uk-flex uk-flex-middle">
           <h4 class="uk-comment-title"><?= $post->user->name ?></h4>
           <?php if ($share === true): ?>
