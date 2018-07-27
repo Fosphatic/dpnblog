@@ -1,0 +1,20 @@
+{
+    "name": "pastheme/dpnblog",
+    "type": "pagekit-extension",
+    "version": "2.0.0",
+    "title": "Advanced Blog",
+    "description": "A blueprint to develop your own themes.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pastheme",
+            "email": "me@pastheme.com",
+            "homepage": "http://pastheme.com"
+        }
+    ],
+    "extra": {
+        "image": "image.jpg",
+        "icon": "icon.svg",
+        "scripts": "scripts.php"
+    }
+}
