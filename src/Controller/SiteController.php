@@ -163,7 +163,7 @@ class SiteController extends GeneralConf
             'post' => $post,
             'like' => self::likeActive() === true,
             'share' => self::shareActive() === true,
-            'desc'  => $description. ' '.$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']
+            'desc'  => $description. ' '.isset($_SERVER['REQUEST_SCHEME']).'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']
         ];
     }
 }
