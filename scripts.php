@@ -21,10 +21,10 @@ return [
               $table->addColumn('category_id', 'integer', ['notnull' => false]);
               $table->addColumn('tags', 'simple_array' , ['notnull' => false]);
               $table->setPrimaryKey(['id']);
-              $table->addUniqueIndex(['slug'], '@BLOG_POST_SLUG');
-              $table->addIndex(['title'], '@BLOG_POST_TITLE');
-              $table->addIndex(['user_id'], '@BLOG_POST_USER_ID');
-              $table->addIndex(['date'], '@BLOG_POST_DATE');
+              $table->addUniqueIndex(['slug'], '@DPNBLOG_POST_SLUG');
+              $table->addIndex(['title'], '@DPNBLOG_POST_TITLE');
+              $table->addIndex(['user_id'], '@DPNBLOG_POST_USER_ID');
+              $table->addIndex(['date'], '@DPNBLOG_POST_DATE');
           });
       }
 
@@ -55,11 +55,11 @@ return [
               $table->addColumn('content', 'text');
               $table->addColumn('status', 'smallint');
               $table->setPrimaryKey(['id']);
-              $table->addIndex(['author'], '@BLOG_COMMENT_AUTHOR');
-              $table->addIndex(['created'], '@BLOG_COMMENT_CREATED');
-              $table->addIndex(['status'], '@BLOG_COMMENT_STATUS');
-              $table->addIndex(['post_id'], '@BLOG_COMMENT_POST_ID');
-              $table->addIndex(['post_id', 'status'], '@BLOG_COMMENT_POST_ID_STATUS');
+              $table->addIndex(['author'], '@DPNBLOG_COMMENT_AUTHOR');
+              $table->addIndex(['created'], '@DPNBLOG_COMMENT_CREATED');
+              $table->addIndex(['status'], '@DPNBLOG_COMMENT_STATUS');
+              $table->addIndex(['post_id'], '@DPNBLOG_COMMENT_POST_ID');
+              $table->addIndex(['post_id', 'status'], '@DPNBLOG_COMMENT_POST_ID_STATUS');
           });
       }
 
