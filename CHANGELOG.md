@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.6
+
+**August 1, 2018 12:18 PM**
+
+### Translation bugfixing
+
 ## 1.4.0
 
 **July 15, 2018 11:18 PM**

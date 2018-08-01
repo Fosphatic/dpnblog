@@ -3,7 +3,7 @@
   <div class="uk-margin uk-flex uk-flex-space-between uk-flex-wrap" data-uk-margin="">
     <div class="uk-flex uk-flex-middle uk-flex-wrap" data-uk-margin="">
 
-        <h2 class="uk-margin-remove">{{data.category | count}} <?= $categorys ?></h2>
+        <h2 class="uk-margin-remove">{{data.category | count}} <?= $categories ?></h2>
         <div v-if="selected.length > 0" class="uk-margin-left" >
             <ul class="uk-subnav pk-subnav-icon">
                 <li><a class="pk-icon-delete pk-icon-hover" :title="'Delete' | trans" data-uk-tooltip="{delay: 500}" @click="remove" v-confirm="'Delete Posts?'"></a></li>
@@ -49,6 +49,6 @@
       </tbody>
   </table>
 
-  <h3 v-if="data.category == 0" class="uk-h1 uk-text-muted uk-text-center">{{'No categorys found.' | trans}}</h3>
+  <h3 v-if="data.category == 0" class="uk-h1 uk-text-muted uk-text-center">{{'No categories found.' | trans}}</h3>
 
 </aside>
