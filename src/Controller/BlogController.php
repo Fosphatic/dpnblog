@@ -171,14 +171,14 @@ class BlogController extends GeneralConf
 
         return [
             '$view' => [
-                'title' => $sub >= 1 ? __('Sub Categorys'):__('Categorys'),
+                'title' => $sub >= 1 ? __('Sub Categories'):__('Categories'),
                 'name'  => 'dpnblog/admin/category-index.php'
             ],
             '$data' => [
                 'category' => $query,
                 'sub'       => $sub
             ],
-            'categorys' => $sub >= 1 ? __('Sub Categorys'):__('Categorys'),
+            'categories' => $sub >= 1 ? __('Sub Categories'):__('Categories'),
         ];
     }
 
