@@ -1,7 +1,7 @@
 {
   "name": "dpnblog",
   "version": "1.4.6",
-  "description": "If you want to have a blog that is always up to date. An Advanced blog for you.",
+  "description": "An Advanced Blog Extension with some extra features.",
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
