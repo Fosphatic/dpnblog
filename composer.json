@@ -3,7 +3,7 @@
     "type": "pagekit-extension",
     "version": "2.0.0",
     "title": "Advanced Blog",
-    "description": "A blueprint to develop your own themes.",
+    "description": "Pagekit Blog extension with some extra features.",
     "license": "MIT",
     "authors": [
         {

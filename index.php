@@ -11,15 +11,15 @@ return[
   'permissions' => [
     'dpnblog: manage all categorys' => [
         'title' => 'Manage all categorys',
-        'description' => 'Create, edit, delete and publish categorys of their own'
+        'description' => 'Create, edit, delete and publish your own categories'
     ],
     'dpnblog: manage own posts' => [
         'title' => 'Manage own posts',
-        'description' => 'Create, edit, delete and publish posts of their own'
+        'description' => 'Create, edit, delete and publish your own blog posts'
     ],
     'dpnblog: manage all posts' => [
         'title' => 'Manage all posts',
-        'description' => 'Create, edit, delete and publish posts by all users'
+        'description' => 'Create, edit, delete and publish blog posts from all authors'
     ],
     'dpnblog: manage comments' => [
         'title' => 'Manage comments',
@@ -27,7 +27,7 @@ return[
     ],
     'dpnblog: post comments' => [
         'title' => 'Post comments',
-        'description' => 'Allowed to write comments on the site'
+        'description' => 'Settings for comments function on the site'
     ],
     'dpnblog: skip comment approval' => [
         'title' => 'Skip comment approval',
