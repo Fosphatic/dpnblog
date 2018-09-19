@@ -13,4 +13,4 @@ If you want to have a blog that is always up to date. An Advanced blog for you. 
 - Add categories to the menu ( we think plannig to update in 2.0.5 Beta )
 - Category list and tags list widgets ( we think plannig to update in 2.0.5 Beta )
 
-If you want to see the **[demo](http://pastheme.com/module/advanced-blog)**
+If you want to see the **[demo](https://pastheme.com/projects/advanced-blog)**

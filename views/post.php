@@ -1,5 +1,8 @@
 <?php $view->script('post', 'dpnblog:app/bundle/post.js', 'vue') ?>
 <?php $view->style('dpn-css' , 'dpnblog:assets/css/dpnblog.min.css');?>
+<?php $view->style('highlight-css' , 'dpnblog:assets/highlight/styles/atom-one-dark.css') ?>
+<?php $view->script('highlight-js' , 'dpnblog:assets//highlight//highlight.pack.js' , ['jquery']) ?>
+<script>hljs.initHighlightingOnLoad();</script>
 <article class="uk-article">
 
     <?php if ($image = $post->get('image.src')): ?>
