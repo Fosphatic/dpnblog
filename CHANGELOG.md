@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.4.7
+
+**September 19, 2018 12:18 PM**
+
+### Add
+
+- Highlight.js if you use <pre><code class="css"> Your code goes here </code></pre> in the blog post to enable nice syntax highlitning
+
+Attention: If you have post.php overrides in your template -> views -> dpnblog folder then you need to make some changes to bind the needed js as css files and last but not least the script section for hightlight.js as well.
+
 ## 1.4.6
 
 **August 1, 2018 12:18 PM**
