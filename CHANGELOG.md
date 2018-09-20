@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.4.8
+
+**September 19, 2018 12:10 PM**
+
+### Add
+
+- Autobind and initialize the script as css files for syntax highlitning
+- Works now out of the box even with overriding post.php in templates views folder
+
 ## 1.4.7
 
 **September 19, 2018 12:18 PM**
