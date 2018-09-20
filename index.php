@@ -195,8 +195,14 @@ return [
         'view.scripts' => function ($event, $scripts) {
             $scripts->register('link-blog', 'dpnblog:app/bundle/link-blog.js', '~panel-link');
             $scripts->register('post-meta', 'dpnblog:app/bundle/post-meta.js', '~post-edit');
+        },
+        'site' => function ($event, $app) {
+            $app->on('view.content', function ($event, $test) use ($app) {
+            $app['scripts']->add('highlight-js' , 'dpnblog:assets/highlight/highlight.pack.js' , ['jquery']);
+            $app['scripts']->add('highlight-init' , 'dpnblog:assets/highlight/highlight.init.js' , 'highlight-js');
+            $app['styles']->add('highlight-css' , 'dpnblog:assets/highlight/styles/atom-one-dark.css');
+            });
         }
-
     ]
 
 ];
